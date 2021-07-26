@@ -105,12 +105,18 @@ Developer Goals:
 # Testing <a name="testing"></a>
 
 ## Setting up Flask environment
-- To initialise my Flask environment, app.py and env.py were created. Inside my env.py file, all the default environment variables needed to connect to Flask and the database "escro_games" on MongoDB. Below is a screenshot of my app.py initialisation, when run for the first time, it was unsuccessful due to a syntax error...
-![Project Displays](assets/images/syntax_error_app_test.png)
-After changing "is" to "if", my test function produced "Hello World!" on the test site. Flask is now successfully initialised and working. 
+- To initialise my Flask environment, app.py and env.py were created. Inside my env.py file, all the default environment variables needed to connect to Flask and the database "escro_games" on MongoDB. Below is a screenshot of my app.py initialisation, when run for the first time, it was unsuccessful due to a syntax error...  
+
+_After changing "is" to "if", my test function produced "Hello World!" on the test site. Flask is now successfully initialised and working_
+![Project Displays](assets/images/syntax_error_app_test.png)  
+
+## Connecting Flask with MongoDB
+- After all the extra installing of frameworks and importing into my app. I created a simple app function that would populate **game.html** with 
 
 
-## Game Testing / Life Cycle
+
+
+## App Testing / Life Cycle
 
 
 
@@ -132,6 +138,29 @@ After changing "is" to "if", my test function produced "Hello World!" on the tes
 7. [Dev Tools](http://ami.responsivedesign.is/)
 
 # Project Deployment <a name="deployment"></a>
+## Process of deployment
+Heroku:  
+
+1. _For the Heroku app to successfully understand what **Framework Requirements** and Python applications to run, a **Procfile** and **requirements.txt** are a must..._  
+
+Using the command **pip3 freeze --local > requirements.txt** in the terminal will create a requirements.txt file with all the dependencies listed to run the Heroku App. Whenever new packages are installed, remeber to update the .txt file | Using the command **echo web: python app.py > Procfile** in ther terminal will create a Procfile, which Heroku uses to know which Python App to run when the site is loaded.  
+
+2. _After initial set up of the Flask app, our next step is to get Heroku to update, recognise and connect with our site..._  
+
+To do this, you need to make an account on Heroku, upon signing in, click **New** to create the app. On the next screen, produce a name for the app, making sure to use lowercase and the region closest to you. If the domain name is available, finish by clicking **Create App**.  
+
+3. _Next we need to have our code update on Heroku automatically. The easiest way to do this is linking the sites repo in Github with the Heroku app..._  
+
+Navigate to the **Deploy** tab and choose **github** as the **Deployment Menthod**. Sign in and Search for the repo name. Once found, choose **connect**.  
+
+4. _Due to the fact we have hidden KEY Environment Variables in the **env.py** file, that Heroku won't be able to retrieve from the **GitHub Repo**, we need to store this in Herkou's **Config Vars**..._  
+
+Under the settings tab you will find the **Config Vars** section. Reveal the section and copy all the **KEY** and **VALUE** pairs from the **env.py** file. Making sure not to include any of the **quotation marks**.  
+
+5. _For the last stage, it is key to make sure the **requirements.txt** and **Procfile** are pushed to the GitHub Repo..._   
+
+Once these files are successfully pushed to GitHub, make sure to **Enable Automatic Deploy**. You can then click **Deploy Branch**, generally **main** or **master**. The Heroku app will take a few minutes to set up the connection. Once successful, every commit pushed to GitHub will update the Heroku app and Live Site.
+
 
 # References <a name="references"></a>
 
