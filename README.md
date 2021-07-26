@@ -104,19 +104,30 @@ Developer Goals:
 
 # Testing <a name="testing"></a>
 
+## App Testing
+
 ## Setting up Flask environment
 - To initialise my Flask environment, app.py and env.py were created. Inside my env.py file, all the default environment variables needed to connect to Flask and the database "escro_games" on MongoDB. Below is a screenshot of my app.py initialisation, when run for the first time, it was unsuccessful due to a syntax error...  
 
 _After changing "is" to "if", my test function produced "Hello World!" on the test site. Flask is now successfully initialised and working_
-![Project Displays](assets/images/syntax_error_app_test.png)  
+![Syntax Error](assets/images/syntax_error_app_test.png)  
 
 ## Connecting Flask with MongoDB
-- After all the extra installing of frameworks and importing into my app. I created a simple app function that would populate **game.html** with 
+- After installing frameworks **flask-pymongo** and **dnspython** and importing them into the app, I created a simple app function that would populate **game.html** with the **values** from the **games** collection on MongoDB. 
+![Connection Function](assets/images/test_connection_function.png)  
+
+- Plugging in an instance of Mongo using the app instance of python, I was able to create an app function **show_games**. The function stores the data from the **games** collection in a new Python variable called **games**. Using the Flask function **render-template**, the data stored in **games** can be output to a file location **games.html**, using Jinja.  
+
+- After populating the **games.html** file using **html:5** boilerplate tab, the file needs to loop through each game within the collection to dsiplay it on site. Using the new variable **game**, which now holds all the data, applying dot notation, Jinja can target each field and render it to the HTML and preview site...
+![Jinja Data Test](assets/images/jinja_template_test.png)  
+
+- My test function produced no errors or bugs and so the connection between Flask and Mongo was successful...
+![Test Connection Preview](assets/images/mono_db_data.png)
 
 
 
 
-## App Testing / Life Cycle
+## Life Cycle
 
 
 
