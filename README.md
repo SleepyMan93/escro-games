@@ -122,9 +122,7 @@ _After changing "is" to "if", my test function produced "Hello World!" on the te
 ![Jinja Data Test](assets/images/jinja_template_test.png)  
 
 - My test function produced no errors or bugs and so the connection between Flask and Mongo was successful...
-![Test Connection Preview](assets/images/mono_db_data.png)
-
-
+![Test Connection Preview](assets/images/mongo_db_data.png)
 
 
 ## Life Cycle
