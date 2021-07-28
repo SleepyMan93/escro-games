@@ -19,7 +19,13 @@
 <body>
 
     <header>
-        <nav> <!-- navbar content here  --> </nav>
+        <nav> 
+            <div id="menu" class="container">
+                <a href="#" data-target="slide-out" class="sidenav-trigger">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </div>
+        </nav>
 
         <ul id="slide-out" class="sidenav sidenav-fixed">
             <li><a href="{{ url_for('show_games') }}">Home</a></li>
@@ -30,8 +36,21 @@
             <li><a href="#">Log Out</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
         </ul>
-        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    
     </header>
+
+    <section>
+        <!-- flash messages -->
+        {% with messages = get_flashed_messages() %} 
+            {% if messages %} 
+                {% for message in messages %}
+                    <div class="row flashes">
+                        <h4 class="center-align">{{ message }}</h4>
+                    </div>
+                {% endfor %} 
+            {% endif %} 
+        {% endwith %}
+    </section>
 
     <main>
     {% block content %}

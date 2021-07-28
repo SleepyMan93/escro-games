@@ -156,7 +156,14 @@ I encountered my first bug once the **fixed side-nav** was in place. For some re
 
 ![Li Text Bug](static/images/li_bug.png)   
 
-    DE-BUGGED: In the exmaple above, you can see through DevTools, the issue was due to HTML formatting. For some reason I placed the text inside the **li** tag and therefore it was displaying below. A simple fix, put the text inside the **a** tag:  
+    DE-BUGGED: In the exmaple above, you can see through DevTools, the issue was due to HTML formatting. For some reason I placed the text inside the li tag and therefore it was displaying below. A simple fix, put the text inside the a tag.
+
+Found a bug with my flash messages. After creating a successful Python function that **POSTS** the Registration data to my DB, a flash message is produced. However, the message flashed seems to be in a list format, being wrapped in **[' ']**...   
+
+![Flash Message Bug](static/images/flash_message_bug.png)   
+
+    DE-BUGGED: The issue was arriving from my Jinja for-loop in base.html. Inside the div that holds the flashed message from messages, I put {{ messages}} plural, rather than {{ message }} singular. This was creating the list format style. 
+
 
 
 
