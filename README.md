@@ -110,19 +110,19 @@ Developer Goals:
 - To initialise my Flask environment, app.py and env.py were created. Inside my env.py file, all the default environment variables needed to connect to Flask and the database "escro_games" on MongoDB. Below is a screenshot of my app.py initialisation, when run for the first time, it was unsuccessful due to a syntax error...  
 
 _After changing "is" to "if", my test function produced "Hello World!" on the test site. Flask is now successfully initialised and working_
-![Syntax Error](assets/images/syntax_error_app_test.png)  
+![Syntax Error](static/images/syntax_error_app_test.png)  
 
 ## Connecting Flask with MongoDB
 - After installing frameworks **flask-pymongo** and **dnspython** and importing them into the app, I created a simple app function that would populate **game.html** with the **values** from the **games** collection on MongoDB. 
-![Connection Function](assets/images/test_connection_function.png)  
+![Connection Function](static/images/test_connection_function.png)  
 
 - Plugging in an instance of Mongo using the app instance of python, I was able to create an app function **show_games**. The function stores the data from the **games** collection in a new Python variable called **games**. Using the Flask function **render-template**, the data stored in **games** can be output to a file location **games.html**, using Jinja.  
 
 - After populating the **games.html** file using **html:5** boilerplate tab, the file needs to loop through each game within the collection to dsiplay it on site. Using the new variable **game**, which now holds all the data, applying dot notation, Jinja can target each field and render it to the HTML and preview site...
-![Jinja Data Test](assets/images/jinja_template_test.png)  
+![Jinja Data Test](static/images/jinja_template_test.png)  
 
 - My test function produced no errors or bugs and so the connection between Flask and Mongo was successful...
-![Test Connection Preview](assets/images/mongo_db_data.png)
+![Test Connection Preview](static/images/mongo_db_data.png)
 
 
 ## Life Cycle
@@ -135,7 +135,13 @@ _After changing "is" to "if", my test function produced "Hello World!" on the te
 ## User Testing 
 
 
-# Bugs / De-Bugging <a name="bugs"></a>
+# Bugs / De-Bugging / Syntax Errors<a name="bugs"></a>
+
+The first error encountered was during the initialisation of my **base.html** page. After importing **Materialize**, **JS** and **Font Awesome** script / link tags, my test site produced a Jinja syntax error...
+![Jinja Syntax Error](static/images/jinja_syntax.png)
+![Jinja Issue](static/images/jinja_error.png)  
+
+RESOLVED: _Upon inspecting the **base.html** template, the reason for the error was found in the **scripts** section. I forgot to close the **Block** tag which was prevnting the template from loading._
 
 
 # Technologies Used <a name="languages"></a>
