@@ -18,16 +18,17 @@
      * Fonts
      * Icons
      * Colours
+     * Layout
    - Sitemap and Wireframes
    - Features and Future Implementations 
 2. [Testing](#testing)
-   - Game Testing / Life Cycle
+   - App Functionality Testing
+      * Setting up Flask Environment
+      * Connecting Flask with MongoDB
    - HTML and CSS checks using WC3 
    - User Testing
    - Peer Code Review
-3. [Bugs and De-bugging](#bugs)
-   - Known bugs
-   - Solutions 
+3. [Bugs / De-bugging / Syntax Issues](#bugs)
 4. [Technologies Used](#languages)
    - Languages Utilised
    - Online Material
@@ -88,10 +89,10 @@ Developer Goals:
 ## Colours
 
 
-### Space
+## Layout
 
 
-### Buttons
+## Buttons
 
 
 # Sitemap / Wireframes
@@ -104,7 +105,7 @@ Developer Goals:
 
 # Testing <a name="testing"></a>
 
-## App Testing
+## App Functionality Testing
 
 ## Setting up Flask environment
 - To initialise my Flask environment, app.py and env.py were created. Inside my env.py file, all the default environment variables needed to connect to Flask and the database "escro_games" on MongoDB. Below is a screenshot of my app.py initialisation, when run for the first time, it was unsuccessful due to a syntax error...  
@@ -127,6 +128,9 @@ _After changing "is" to "if", my test function produced "Hello World!" on the te
 
 ## Life Cycle
 
+Below is a screenshot of the very early skeleton for my site. The **fixed side-nav** in place which is main design feature for my app. Basic **Jinja**, **Flask** and **Python** functionality in place:
+![Test Connection Preview](static/images/site_skeleton.png)
+
 
 
 ## HTML and CSS checks
@@ -135,13 +139,25 @@ _After changing "is" to "if", my test function produced "Hello World!" on the te
 ## User Testing 
 
 
-# Bugs / De-Bugging / Syntax Errors<a name="bugs"></a>
+# Bugs / De-Bugging / Syntax Issues<a name="bugs"></a>
 
-The first error encountered was during the initialisation of my **base.html** page. After importing **Materialize**, **JS** and **Font Awesome** script / link tags, my test site produced a Jinja syntax error...
+## Errors
+
+The first error encountered was during the initialisation of my **base.html** page. After importing **Materialize**, **JS** and **Font Awesome** script / link tags, my test site produced a Jinja syntax error...   
+
 ![Jinja Syntax Error](static/images/jinja_syntax.png)
 ![Jinja Issue](static/images/jinja_error.png)  
 
-RESOLVED: _Upon inspecting the **base.html** template, the reason for the error was found in the **scripts** section. I forgot to close the **Block** tag which was prevnting the template from loading._
+    RESOLVED: _Upon inspecting the **base.html** template, the reason for the error was found in the **scripts** section. I forgot to close the **Block** tag which was prevnting the template from loading._
+
+## Bugs
+
+I encountered my first bug once the **fixed side-nav** was in place. For some reason the **anchor** links were displaying above the **text** for that page link. The links worked but had no text inside... 
+
+![Li Text Bug](static/images/li_bug.png)   
+
+    DE-BUGGED: In the exmaple above, you can see through DevTools, the issue was due to HTML formatting. For some reason I placed the text inside the **li** tag and therefore it was displaying below. A simple fix, put the text inside the **a** tag:  
+
 
 
 # Technologies Used <a name="languages"></a>
