@@ -128,8 +128,15 @@ _After changing "is" to "if", my test function produced "Hello World!" on the te
 
 ## Life Cycle
 
-Below is a screenshot of the very early skeleton for my site. The **fixed side-nav** in place which is main design feature for my app. Basic **Jinja**, **Flask** and **Python** functionality in place:
+Below is a screenshot of the very early skeleton for my site. The **fixed side-nav** in place which is main design feature for my app. Basic **Jinja**, **Flask** and **Python** functionality in place:   
+
 ![Test Connection Preview](static/images/site_skeleton.png)
+
+Added in registration page that successfully grabs user data from the inputs and stores correctly in the 'users' collection within the database:   
+
+![Test Connection Preview](static/images/successful_reg.png)
+![Test Connection Preview](static/images/user_data.png)
+
 
 
 
