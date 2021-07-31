@@ -145,9 +145,11 @@ _After changing "is" to "if", my test function produced "Hello World!" on the te
 
  - Unpacked my first listed game data into the **Collections Component** from Materialize. Home page basic structure beginning to take form:   
 
-![Basic Home Page](static/images/basic_homepage.png)
+![Basic Home Page](static/images/basic_homepage.png)   
 
+ - Created basic the boilerplate for the user to publish a post with all the inputs ready to fill results for the game document:    
 
+![Publish Boilerplate](static/images/publish_boilerplate.png)
 
 
 ## HTML and CSS checks
