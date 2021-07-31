@@ -1,14 +1,28 @@
 {% extends "base.html" %}
-{% block content %} 
+{% block content %}
 
-    {% for game in games %} 
-        {{ game.game_title }}<br>
-        {{ game.genre }}<br>
-        {{ game.game_description }}<br>
-        {{ game.created_by }}<br>
-        {{ game.is_available }}<br>
-        {{ game.price }}<br>
-        {{ game.post_date }}<br>
-    {% endfor %} 
+<!-- {% for game in games %}
+{{ game.game_title }}<br>
+{{ game.genre }}<br>
+{{ game.game_description }}<br>
+{{ game.created_by }}<br>
+{{ game.is_available }}<br>
+{{ game.price }}<br>
+{{ game.post_date }}<br>
+{% endfor %} -->
+
+    <ul class="collection">
+        {% for game in games %}
+        <li class="collection-item avatar">
+            <img src="" alt="profile pic" class="circle">
+            <span class="title">
+                <strong>{{ game.game_title }}</strong> {{ game.genre }}
+            </span>
+            <p>{{ game.game_description }} <br>
+                Second Line
+            </p>
+        </li>
+        {% endfor %}
+    </ul>
 
 {% endblock %}

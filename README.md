@@ -90,6 +90,12 @@ Developer Goals:
 
 
 ## Layout
+For this project I will be trying out the Materialize Design Framework. It feels simialr to Bootstrap but the components seem to work better with the design layout the app is aiming to achieve.   
+    
+### Home Page
+After initialising my functions and basic app inputs, the first deisgn layout decision I needed to make was how to layout the user posts. After searching through Materialize, I found a **Component** called **Collections** which seemlessly matched my initial Wireframe layout below. I used this as my template to inject the Jinja for loop that would fill the Component with the correct game content
+![Collections Component](static/images/collections_component.png)
+
 
 
 ## Buttons
@@ -171,6 +177,12 @@ Found a bug with my flash messages. After creating a successful Python function 
 
     DE-BUGGED: The issue was arriving from my Jinja for-loop in base.html. Inside the div that holds the flashed message from messages, I put {{ messages}} plural, rather than {{ message }} singular. This was creating the list format style. 
 
+A bug occured when trying to inject the **game** list items into the **Collections** Component template from Materialize. The component template appeared as a white line once I tried to unpack the neccessary game data into it...   
+
+![Jinja ForLoop Bug](static/images/jinja_for_loop_bug.png)   
+
+    DE_BUGGED: After reading back through my notes from the mini-project, I found that in my app.show_games view, the list was technically a Mongo Cursor Object. By turning it into a proper list, the game items were unpacked properly.   
+![Jinja ForLoop Fix](static/images/jinja_for_loop_fix.png)
 
 
 
