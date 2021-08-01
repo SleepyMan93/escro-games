@@ -188,7 +188,15 @@ A bug occured when trying to inject the **game** list items into the **Collectio
 ![Jinja ForLoop Bug](static/images/jinja_for_loop_bug.png)   
 
     DE_BUGGED: After reading back through my notes from the mini-project, I found that in my app.show_games view, the list was technically a Mongo Cursor Object. By turning it into a proper list, the game items were unpacked properly.   
-![Jinja ForLoop Fix](static/images/jinja_for_loop_fix.png)
+![Jinja ForLoop Fix](static/images/jinja_for_loop_fix.png)   
+
+Encountered a fairly annoying bug that saw my Game **genre** options not being posted to the database. Everything else wrapped inside the "POST" form was successfully posting bar the genre choice. The dropdown would "GET" the **genre_type** options but not "POST" them with everything else...   
+
+![Genre Post Bug](static/images/genre_post_bug.png)    
+
+    DE_BUGGED: After checking through the stages, I realised that the genre was in fact posting to the database but just not being displayed properly through the Jinja template. In the end, quite a simple fix. Just had to ammend the "game.genre" call to "game.genre_type" as I changed the name half way through the development.     
+![Genre Post Fix](static/images/genre_post_fix.png)    
+
 
 
 

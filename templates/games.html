@@ -16,10 +16,10 @@
         <li class="collection-item avatar">
             <img src="" alt="profile pic" class="circle">
             <span class="title">
-                <strong>{{ game.game_title }}</strong> {{ game.genre }}
+                <strong>{{ game.game_title }}</strong> #{{ game.genre_type }}
             </span>
             <p>{{ game.game_description }} <br>
-                Second Line
+                Second Line • <span><em>Posted by {{ game.created_by }}</em></span>
             </p>
         </li>
         {% endfor %}

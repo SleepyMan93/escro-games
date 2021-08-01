@@ -101,9 +101,23 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/publish")
+@app.route("/publish", methods=["GET", "POST"])
 def publish():
-    genres = mongo.db.genres.find().sort("genre", 1)
+    if request.method == "POST":
+        game = {
+            "genre_type": request.form.get("genre_type"),
+            "game_title": request.form.get("game_title"),
+            "game_description": request.form.get("game_description"),
+            "price": request.form.get("price"),
+            "dev_team": request.form.get("dev_team"),
+            "release_date": request.form.get("release_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.games.insert_one(game)
+        flash("Game Successfully Added")
+        return redirect(url_for("show_games"))
+
+    genres = mongo.db.genres.find().sort("genre_type", 1)
     return render_template("publish.html", genres=genres)
 
 
