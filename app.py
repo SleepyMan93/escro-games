@@ -103,7 +103,8 @@ def logout():
 
 @app.route("/publish")
 def publish():
-    return render_template("publish.html")
+    genres = mongo.db.genres.find().sort("genre", 1)
+    return render_template("publish.html", genres=genres)
 
 
 if __name__ == "__main__":
