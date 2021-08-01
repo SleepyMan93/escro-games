@@ -17,3 +17,7 @@ main, section, footer {
   line-height: 2;
 }
 
+main #genre_type {
+  display: none !important;
+}
+
