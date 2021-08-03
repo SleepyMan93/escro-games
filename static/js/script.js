@@ -1,6 +1,7 @@
 $(document).ready(function () {
   $('.sidenav').sidenav();
   $('select').formSelect();
+  $('.fixed-action-btn').floatingActionButton();
   $('.datepicker').datepicker({
     format: "dd mmmm, yyyy",
     yearRange: 5,

@@ -17,6 +17,15 @@ main, section, footer {
   line-height: 2;
 }
 
+/* Home Page */
+
+.collection .collection-item {
+  background-color: #fff;
+  line-height: 1.5rem;
+  padding: 10px 10px 0px 10px;
+  margin: 0;
+}
+
 main #genre_type {
   display: none !important;
 }
