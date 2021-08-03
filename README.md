@@ -197,6 +197,11 @@ Encountered a fairly annoying bug that saw my Game **genre** options not being p
     DE_BUGGED: After checking through the stages, I realised that the genre was in fact posting to the database but just not being displayed properly through the Jinja template. In the end, quite a simple fix. Just had to ammend the "game.genre" call to "game.genre_type" as I changed the name half way through the development.     
 ![Genre Post Fix](static/images/genre_post_fix.png)    
 
+I ran into this bug that would force the game post content up and under the nav bar. The new dropdown button to edit the post, only the last in the list however, was causing this to happen...    
+![Dropdown Bug](static/images/dropdown_bug.png)    
+
+    DE-BUGGED: I managed to solve the issue using Dev Tools. The Materialize CSS was setting the UL of class="collection" to Overflow: Hidden which was forcing the content to fit inside the container. I just created my own custom style and applied overflow: visible to fix.
+
 
 
 
