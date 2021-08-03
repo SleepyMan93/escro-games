@@ -1,6 +1,7 @@
 $(document).ready(function () {
   $('.sidenav').sidenav();
   $('select').formSelect();
+  $('.dropdown-trigger').dropdown({hover: "true"});
   $('.fixed-action-btn').floatingActionButton();
   $('.datepicker').datepicker({
     format: "dd mmmm, yyyy",

@@ -19,6 +19,44 @@ main, section, footer {
 
 /* Home Page */
 
+#allGames {
+  margin: .5rem 0 1rem 0;
+  border: 0px;
+  border-radius: 2px;
+  overflow: visible;
+  position: relative;
+}
+
+.collection .collection-item:last-child {
+  border-bottom: inset !important;
+}
+
+#editButton {
+  box-shadow: 0 0 0 0 rgb(0 0 0 / 14%), 0 0 0 0 rgb(0 0 0 / 12%), 0 0 0 0 rgb(0 0 0 / 20%);
+}
+
+#editButton:hover {
+  background-color: transparent;
+}
+
+.btn, .btn-large, .btn-small {
+  color: currentColor;
+  background-color: transparent;
+}
+
+.btn, .btn-large, .btn-small, .btn-flat {
+  padding: 0px;
+}
+
+.row .col.s1 {
+  width: 8.3333333333%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+  text-align: right;
+  margin-top: 1.5rem;
+}
+
 .collection .collection-item {
   background-color: #fff;
   line-height: 1.5rem;

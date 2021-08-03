@@ -121,6 +121,14 @@ def publish():
     return render_template("publish.html", genres=genres)
 
 
+@app.route("/edit_post/<game_id>", methods=["GET", "POST"])
+def edit_post(game_id):
+    game = mongo.db.games.find_one({"_id": ObjectId(game_id)})
+    
+    genres = mongo.db.genres.find().sort("genre_type", 1)
+    return render_template("edit_post.html", game=game, genres=genres)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
