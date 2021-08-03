@@ -22,14 +22,6 @@
                         Second Line • <span><em>Posted by {{ game.created_by }}</em></span>
                     </p>
                 </div>
-                <div class="col s1">
-                    <a id="editButton" class='dropdown-trigger btn' href='#' data-target='dropdown1'><i class="material-icons">more_vert</i></a>
-                    <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="{{ url_for('edit_post', game_id=game._id) }}">Edit</a></li>
-                        <li><a href="#!">Done</a></li>
-                        <li class="divider" tabindex="-1"></li>
-                    </ul>
-                </div>
             </div>
         </li>
         {% endfor %}

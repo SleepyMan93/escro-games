@@ -129,7 +129,12 @@ _After changing "is" to "if", my test function produced "Hello World!" on the te
 ![Jinja Data Test](static/images/jinja_template_test.png)  
 
 - My test function produced no errors or bugs and so the connection between Flask and Mongo was successful...
-![Test Connection Preview](static/images/mongo_db_data.png)
+![Test Connection Preview](static/images/mongo_db_data.png)    
+
+## Python App Views
+- Once my basic CRUD functionality was in place, the aim was to redesign the app direction so that on the users profile they could only see their posts. At first I wasn't able to even get the game list to render in but realised I was trying to load the list in the wrong view...
+![User Game Function](static/images/user_game_function.png)     
+Above is what my app view looked like to try and find game documents associated with the user that was logged in. Through tracing the redirects, I realised the list needed to be loaded into the profile view. Now the list of games load but need to try and work out how to remove other users posts...
 
 
 ## Life Cycle
@@ -201,8 +206,6 @@ I ran into this bug that would force the game post content up and under the nav 
 ![Dropdown Bug](static/images/dropdown_bug.png)    
 
     DE-BUGGED: I managed to solve the issue using Dev Tools. The Materialize CSS was setting the UL of class="collection" to Overflow: Hidden which was forcing the content to fit inside the container. I just created my own custom style and applied overflow: visible to fix.
-
-
 
 
 # Technologies Used <a name="languages"></a>

@@ -87,8 +87,10 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
+    games = list(mongo.db.games.find())
+
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username, games=games)
 
     return redirect(url_for("login"))
 
