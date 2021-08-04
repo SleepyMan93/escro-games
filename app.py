@@ -144,6 +144,12 @@ def delete_post(game_id):
     return render_template("profile.html")
 
 
+@app.route("/get_genres")
+def get_genres():
+    genres = list(mongo.db.genres.find().sort("genre_type", 1))
+    return render_template("genres.html", genres=genres)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
