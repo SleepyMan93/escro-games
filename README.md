@@ -137,6 +137,8 @@ _After changing "is" to "if", my test function produced "Hello World!" on the te
 
 Above is what my app view looked like to try and find game documents associated with the user that was logged in. Through tracing the redirects, I realised the list needed to be loaded into the profile view. Now the list of games load but need to try and work out how to remove other users posts...    
 
+The solution wasn't found in creating another app view but simply an error in forgetting **|lower** in my Jinja forloop:
+
 ![Profile Only Post](static/images/profile_only_post.png)
 
 

@@ -138,6 +138,12 @@ def edit_post(game_id):
     return render_template("edit_post.html", game=game, genres=genres)
 
 
+@app.route("/delete_post/<game_id>")
+def delete_post(game_id):
+    mongo.db.games.remove({"_id": ObjectId(game_id)})
+    return render_template("profile.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
