@@ -64,8 +64,6 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
-                    flash("Welcome, back to Escro {}".format(
-                        request.form.get("username")))
                     return redirect(url_for(
                         "profile", username=session["user"]))
             else:
@@ -98,7 +96,6 @@ def profile(username):
 @app.route("/logout")
 def logout():
     # remove user from session cookies
-    flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
 
@@ -116,7 +113,6 @@ def publish():
             "created_by": session["user"]
         }
         mongo.db.games.insert_one(game)
-        flash("Game Successfully Added")
         return redirect(url_for("show_games"))
 
     genres = mongo.db.genres.find().sort("genre_type", 1)
@@ -125,8 +121,19 @@ def publish():
 
 @app.route("/edit_post/<game_id>", methods=["GET", "POST"])
 def edit_post(game_id):
+    if request.method == "POST":
+        submit = {
+            "genre_type": request.form.get("genre_type"),
+            "game_title": request.form.get("game_title"),
+            "game_description": request.form.get("game_description"),
+            "price": request.form.get("price"),
+            "dev_team": request.form.get("dev_team"),
+            "release_date": request.form.get("release_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.games.update({"_id": ObjectId(game_id)}, submit)
+
     game = mongo.db.games.find_one({"_id": ObjectId(game_id)})
-    
     genres = mongo.db.genres.find().sort("genre_type", 1)
     return render_template("edit_post.html", game=game, genres=genres)
 

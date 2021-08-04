@@ -3,6 +3,7 @@
 
     <ul id="allGames" class="collection">
         {% for game in games %}
+            {% if session.user|lower == game.created_by|lower %}
             <li class="collection-item avatar">
                 <img src="" alt="profile pic" class="circle">
                 <div class="row">
@@ -22,6 +23,7 @@
                     </div>
                 </div>
             </li>
+            {% endif %}
         {% endfor %}
     </ul>
 

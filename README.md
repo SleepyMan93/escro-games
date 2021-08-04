@@ -1,4 +1,4 @@
-# Linton's Lights: Memory Game
+Escro Games
 
 #### Code Institute Full Stack Development Dipoloma: Milestone Project 3 - Backend Development Milestone Project 
 ##### Created by William Donovan
@@ -134,7 +134,11 @@ _After changing "is" to "if", my test function produced "Hello World!" on the te
 ## Python App Views
 - Once my basic CRUD functionality was in place, the aim was to redesign the app direction so that on the users profile they could only see their posts. At first I wasn't able to even get the game list to render in but realised I was trying to load the list in the wrong view...
 ![User Game Function](static/images/user_game_function.png)     
-Above is what my app view looked like to try and find game documents associated with the user that was logged in. Through tracing the redirects, I realised the list needed to be loaded into the profile view. Now the list of games load but need to try and work out how to remove other users posts...
+
+Above is what my app view looked like to try and find game documents associated with the user that was logged in. Through tracing the redirects, I realised the list needed to be loaded into the profile view. Now the list of games load but need to try and work out how to remove other users posts...    
+
+![Profile Only Post](static/images/profile_only_post.png)
+
 
 
 ## Life Cycle
