@@ -27,6 +27,12 @@ main, section, footer {
   position: relative;
 }
 
+#search {
+  padding: 0px; 
+  margin: 0px;
+  box-shadow: 0 0px 0px 0 rgb(0 0 0 / 14%), 0 0px 0px 0px rgb(0 0 0 / 12%), 0 0px 0px 0 rgb(0 0 0 / 20%);
+}
+
 .collection .collection-item:last-child {
   border-bottom: inset !important;
 }
