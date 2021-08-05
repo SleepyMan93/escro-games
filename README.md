@@ -213,6 +213,9 @@ I ran into this bug that would force the game post content up and under the nav 
 
     DE-BUGGED: I managed to solve the issue using Dev Tools. The Materialize CSS was setting the UL of class="collection" to Overflow: Hidden which was forcing the content to fit inside the container. I just created my own custom style and applied overflow: visible to fix.
 
+When styling the app, I encountered a bug regarding the **Profile** page. It was the only template that didn't render in the logo but extended everything else from the **base.html** boilerplate...     
+![Profile Logo Bug](static/images/no_logo_admin_bug.png)
+
 
 # Technologies Used <a name="languages"></a>
 
