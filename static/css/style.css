@@ -32,6 +32,10 @@ input[type=text]:not(.browser-default) {
   top: 2.4rem;
 }
 
+.container {
+  max-width: 2500px;
+}
+
 .sidenav {
   width: 225px;
   background-color: #060C17;
@@ -90,10 +94,6 @@ h4 {
   box-shadow: 0 0 0 0 rgb(0 0 0 / 14%), 0 0 0 0 rgb(0 0 0 / 12%), 0 0 0 0 rgb(0 0 0 / 20%);
 }
 
-#editButton:hover {
-  background-color: transparent;
-}
-
 .btn, .btn-large, .btn-small {
   color: currentColor;
   background-color: transparent;
@@ -101,6 +101,62 @@ h4 {
 
 .btn, .btn-large, .btn-small, .btn-flat {
   padding: 0px;
+}
+
+#editButton:visited {
+  background-color: transparent;
+}
+
+#editButton:hover {
+  background-color: transparent;
+}
+
+#editButton:focus {
+  background-color: transparent;
+}
+
+.dropdown-content li.divider {
+  height: 0px;
+}
+
+.dropdown-content {
+  background-color: #262829;
+}
+
+.dropdown-content li:hover {
+  background-color: #37393B;
+  opacity: 0.9;
+}
+
+.dropdown-content li>a {
+  color: #F0F7F4;
+}
+
+thead tr {
+  background-color: transparent !important;
+  color: white;
+  border-radius: 0px;
+}
+
+tr {
+  border-bottom: 10px solid #060C17;
+}
+
+td, th {
+  padding: 20px;
+  display: table-cell;
+  text-align: left;
+  vertical-align: middle;
+  border-radius: 0px;
+  color: #F0F7F4;
+}
+
+tr:nth-child(2) {
+  background-color: #262829;
+}
+
+tr:nth-child(odd) {
+  background-color: #1f2020;
 }
 
 .row .col.s1 {
@@ -121,6 +177,10 @@ h4 {
 
 main #genre_type {
   display: none !important;
+}
+
+.circle {
+  border-radius: 0%;
 }
 
 

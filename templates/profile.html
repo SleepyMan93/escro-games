@@ -9,18 +9,29 @@
     </div>
 </nav>
 
-    <ul id="allGames" class="collection">
-        {% for game in games %}
-            {% if session.user|lower == game.created_by|lower %}
-            <li class="collection-item avatar">
-                <img src="" alt="profile pic" class="circle">
-                <div class="row">
-                    <div class="col s11">
-                        <strong>{{ game.game_title }}</strong> #{{ game.genre_type }} <br>
-                        <p>{{ game.game_description }} <br>
-                            Second Line • <span><em>Posted by {{ game.created_by }}</em></span>
-                        </p>
-                    </div>
+    <div class="container">
+        <table class="highlight">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Genre</th>
+                <th>Price</th>
+                <th>
+                </th>
+            </tr>
+            </thead>
+
+            <tbody>
+                {% for game in games %}
+                {% if session.user|lower == game.created_by|lower %}
+                <tr>
+                    <td>
+                        <img src="" alt="profile pic" class="circle">
+                        <strong>{{ game.game_title }}</strong>  
+                    </td>
+                <td>#{{ game.genre_type }}</td>
+                <td>{{ game.price }}</td>
+                <td>
                     <div class="col s1">
                         <a id="editButton" class='dropdown-trigger btn' href='#' data-target='dropdown1'><i class="material-icons">more_vert</i></a>
                         <ul id='dropdown1' class='dropdown-content'>
@@ -30,11 +41,13 @@
                             <li class="divider" tabindex="-1"></li>
                         </ul>
                     </div>
-                </div>
-            </li>
-            {% endif %}
-        {% endfor %}
-    </ul>
+                </td>
+            </tr>
+            {% endif %} 
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large red">
