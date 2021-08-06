@@ -151,7 +151,7 @@ td, th {
   color: #F0F7F4;
 }
 
-tr:nth-child(2) {
+tr:nth-child(even) {
   background-color: #262829;
 }
 
