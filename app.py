@@ -141,6 +141,7 @@ def edit_post(game_id):
             "game_description": request.form.get("game_description"),
             "price": request.form.get("price"),
             "dev_team": request.form.get("dev_team"),
+            "image_link": request.form.get("image_link"),
             "release_date": request.form.get("release_date"),
             "created_by": session["user"]
         }

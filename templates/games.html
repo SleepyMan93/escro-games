@@ -39,7 +39,9 @@
                 {% for game in games %}
                 <tr>
                     <td>
-                        <img src="" alt="profile pic" class="circle">
+                        <div class="image-container">
+                            <img class="game-pic responsive-img" src="{{ game.image_link }}" alt="profile pic" class="circle">
+                        </div>
                     </td>
                     <td>
                         <div class="row">
