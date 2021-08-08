@@ -164,6 +164,11 @@ def get_genres():
     return render_template("genres.html", genres=genres)
 
 
+@app.route("/game_page")
+def game_page():
+    return render_template("game_page.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
