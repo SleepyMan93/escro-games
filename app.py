@@ -169,7 +169,7 @@ def game_page(game_id):
     games = list(mongo.db.games.find())
     mongo.db.games.find({"_id": ObjectId(game_id)})
 
-    return render_template("game_page.html")
+    return render_template("game_page.html", games=games)
 
 
 @app.route("/get_genres")

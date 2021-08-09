@@ -14,6 +14,12 @@
 
     {% if games|length > 0 %}
     <div class="container">
+        <div class="row">
+            <h4>Top Posts</h4>
+        </div>
+    </div>
+
+    <div class="container">
         <table class="highlight">
             <tbody>
                 {% for game in games %}
@@ -25,13 +31,20 @@
                     </td>
                     <td id="postInfo">
                         <div class="row">
-                            <div class="col s12 m11">
-                                <strong>{{ game.game_title }}</strong> #{{ game.genre_type }} <br>
-                                <br>
-                                <p>{{ game.game_description }} <br>
+                            <div class="col s8 m11">
+                                <span><strong>{{ game.game_title }}</strong></span> <span>#{{ game.genre_type|lower }}</span><br>
+                                <p>{{ game.game_description }}</p>
                                 <span><em>Posted by {{ game.created_by }}</em></span>
                                 </p>
                             </div>
+                            <div id="ticker" class="col s4 m1">
+                                <button class="reaction" onclick="buttonClick();"><i class="material-icons">thumb_up</i></button>
+                                <input type="text" id="inc" value="0"></input>
+
+                                <button class="reaction" onclick="buttonClick();"><i class="material-icons">thumb_down</i></button>
+                                <input type="text" id="inc" value="0"></input>
+                            </div>
+                        </div>
                     </td>
                     {% endfor %}
             </tbody>
@@ -40,16 +53,5 @@
     {% else %}
     <h3 class="red-text center-align">No Results Found</h3>
     {% endif %}
-
-
-    <div class="fixed-action-btn">
-        <a class="btn-floating btn-large red">
-            <i class="material-icons">menu_open</i>
-        </a>
-        <ul>
-            <li><a class="btn-floating red"><i class="material-icons">mode_edit</i></a></li>
-            <li><a class="btn-floating yellow darken-1"><i class="material-icons">widgets</i></a></li>
-        </ul>
-    </div>
 
 {% endblock %}

@@ -13,28 +13,24 @@
 
 {% if games|length > 0 %}
 <div class="container">
-    <table class="highlight">
-        <tbody>
+        <div class="row">
             {% for game in games %}
-            <tr>
-                <td class="game-cell">
-                    <div class="image-container">
-                        <a href="{{ url_for('game_page') }}"><img class="game-pic responsive-img" src="{{ game.image_link }}" alt="profile pic" class="circle"></a>
-                    </div>
-                </td>
-                <td id="postInfo">
-                    <div class="row">
-                        <div class="col s12 m11">
-                            <strong>{{ game.game_title }}</strong> #{{ game.genre_type }} <br>
-                            <br>
-                            <p>{{ game.game_description }} <br>
-                            <span><em>Posted by {{ game.created_by }}</em></span>
-                            </p>
-                        </div>
-                </td>
-                {% endfor %}
-        </tbody>
-    </table>
+            <div class="col s3">
+                <a href="{{ url_for('game_page', game_id=game._id) }}"><img class="game-pic responsive-img" src="{{ game.image_link }}" alt="profile pic" class="circle"></a>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            {% for game in games %}
+            <div class="col s3">
+                <strong>{{ game.game_title }}</strong> <br>
+                <span>{{ game.dev_team }}</span> <br>
+                <span>{{ game.price }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% else %}
 <h3 class="red-text center-align">No Results Found</h3>
