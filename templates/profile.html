@@ -6,6 +6,7 @@
             <thead>
             <tr>
                 <th></th>
+                <th>Title</th>
                 <th>Genre</th>
                 <th>Price</th>
                 <th>
@@ -18,9 +19,11 @@
                 {% if session.user|lower == game.created_by|lower %}
                 <tr>
                     <td>
-                        <img src="" alt="profile pic" class="circle">
-                        <strong>{{ game.game_title }}</strong>  
+                        <div class="profile image-container">
+                        <img src="{{ game.image_link }}" alt="profile pic" class="profile-game-pic responsive-img">
+                        </div>  
                     </td>
+                <td><strong>{{ game.game_title }}</strong></td>
                 <td>#{{ game.genre_type }}</td>
                 <td>{{ game.price }}</td>
                 <td>

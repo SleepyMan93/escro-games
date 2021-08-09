@@ -25,6 +25,12 @@ def show_games():
     return render_template("games.html", games=games)
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
+
+
 @app.route("/library")
 def library():
     games = list(mongo.db.games.find())
@@ -59,8 +65,7 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("Welcome to Escro")
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("show_games", username=session["user"]))
 
     return render_template("register.html")
 
@@ -155,18 +160,22 @@ def edit_post(game_id):
 @app.route("/delete_post/<game_id>")
 def delete_post(game_id):
     mongo.db.games.remove({"_id": ObjectId(game_id)})
+
     return render_template("profile.html")
+
+
+@app.route("/game_page/<game_id>", methods=["GET", "POST"])
+def game_page(game_id):
+    games = list(mongo.db.games.find())
+    mongo.db.games.find({"_id": ObjectId(game_id)})
+
+    return render_template("game_page.html")
 
 
 @app.route("/get_genres")
 def get_genres():
     genres = list(mongo.db.genres.find().sort("genre_type", 1))
     return render_template("genres.html", genres=genres)
-
-
-@app.route("/game_page")
-def game_page():
-    return render_template("game_page.html")
 
 
 if __name__ == "__main__":
