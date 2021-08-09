@@ -21,6 +21,9 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/show_games")
 def show_games():
+    """
+    Function to render the library of games on the library page
+    """
     games = list(mongo.db.games.find())
     return render_template("games.html", games=games)
 
@@ -29,6 +32,12 @@ def show_games():
 def page_not_found(e):
     # note that we set the 404 status explicitly
     return render_template('404.html'), 404
+
+
+@app.errorhandler(403)
+def no_entry(e):
+    # note that we set the 403 status explicitly
+    return render_template('403.html'), 403
 
 
 @app.route("/library")
@@ -82,6 +91,7 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
+                    session["logged_in"] = True
                     return redirect(url_for(
                         "profile", username=session["user"]))
             else:
@@ -127,6 +137,7 @@ def publish():
             "game_description": request.form.get("game_description"),
             "price": request.form.get("price"),
             "dev_team": request.form.get("dev_team"),
+            "image_link": request.form.get("image_link"),
             "release_date": request.form.get("release_date"),
             "created_by": session["user"]
         }
@@ -159,9 +170,17 @@ def edit_post(game_id):
 
 @app.route("/delete_post/<game_id>")
 def delete_post(game_id):
-    mongo.db.games.remove({"_id": ObjectId(game_id)})
+    # check if user is logged in (session user)
+    if session["user"]:
+        # checked logged in user against user of post or admin
+        if {"username": session["user"]} == session["user"]:
+            # if conditions are met, delete post
+            mongo.db.games.remove({"_id": ObjectId(game_id)})
+        else:
+            return render_template("403.html")
+    # else return error 403
 
-    return render_template("profile.html")
+    return redirect(url_for("profile", username=session["user"]))
 
 
 @app.route("/game_page/<game_id>", methods=["GET", "POST"])
