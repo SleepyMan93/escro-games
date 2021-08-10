@@ -77,6 +77,12 @@ Developer Goals:
 
 # User Stories
 
+- As a user, I want a profile feature so that I can manage my posts.
+- As a games developer, I want to be able to search so that I can see if our catalogue is online yet.
+- As the developer, I want a bump (upVote) feature so that I have alphanumeric data about each game.
+- As a user, the ability to check the status of my post and see how successful it was via the upVotes.
+- As a user and games developer, I want to be able to post about games.
+
 
 # Design Principles
 
@@ -93,10 +99,14 @@ Developer Goals:
 For this project I will be trying out the Materialize Design Framework. It feels simialr to Bootstrap but the components seem to work better with the design layout the app is aiming to achieve.   
     
 ### Home Page
-After initialising my functions and basic app inputs, the first deisgn layout decision I needed to make was how to layout the user posts. After searching through Materialize, I found a **Component** called **Collections** which seemlessly matched my initial Wireframe layout below. I used this as my template to inject the Jinja for loop that would fill the Component with the correct game content
+After initialising my functions and basic app inputs, the first deisgn layout decision I needed to make was how to layout the user posts. After searching through Materialize, I found a **Component** called **Collections** which seemlessly matched my initial Wireframe layout below. I used this as my template to inject the Jinja for loop that would fill the Component with the correct game content.
 ![Collections Component](static/images/collections_component.png)
 
+Although this seemed like the best design choice, I actually ended up going with the Materialize table layout as my main structure. 
+- INSERT PICTURE OF HOMEPAGE
 
+I also decided on pushing over the main nav to the left and having a sidenav contain my logo and page links. The overall feel kept the context of the page more condensed and a more library aspect to my site.
+- PIXTURE OF SIDENAV
 
 ## Buttons
 
@@ -106,6 +116,12 @@ After initialising my functions and basic app inputs, the first deisgn layout de
 
 
 # Features / Future Implementations
+
+- Eventually I would like to implement a feature that allows users to search for development teams or when the dev team is saved on Mongo, have the site create a dedicated
+page for them and their releases.
+- The ability to include notifiaction awareness for the user would be a great feature to have them coming back.
+- Not really a difficult implementation but include the ability to purchse the game through our site or redirected to a place where that's possible.
+- Include a more detailed 'relevancy' dropdown section on my Library page that allows sorting by: "Most Recent", "Most Popular", "Genre" etc
 
 --------------------
 
@@ -215,6 +231,13 @@ I ran into this bug that would force the game post content up and under the nav 
 
 When styling the app, I encountered a bug regarding the **Profile** page. It was the only template that didn't render in the logo but extended everything else from the **base.html** boilerplate...     
 ![Profile Logo Bug](static/images/no_logo_admin_bug.png)
+
+    DE_BUGGED: The issue was a fairly simple one. I forgot to include the forward slash before "static/images.." in my base.html template. Thus the link wasn't coming from the root and not rendering properly.    
+
+Encountered a bug when trying to upload and edit posts. All the game credentials show on the page bar the image... 
+![Image Bug](static/images/image_bug.png)   
+
+    DE-BUGGED: The issue was originating from my "edit" and "publish" app views. The extra dictionary insert that uploaded the image link to the Mongo document was missing. 
 
 
 # Technologies Used <a name="languages"></a>
