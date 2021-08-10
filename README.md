@@ -157,6 +157,14 @@ The solution wasn't found in creating another app view but simply an error in fo
 
 ![Profile Only Post](static/images/profile_only_post.png)
 
+- With all my functions for CRUD working, I wanted to put some defensive programming into the app which stops people from forcing their way onto profiles and deleting posts that are not their property. My first stage was to make sure the session['user'] was session['logged_in']. To check this, I put an **if** condition in my profile view that when the user logs in, if session['logged_in'] == True, a flash message would appear....
+![Session Logged In Check](static/images/session_logged_in_check.png)    
+
+SUCCESS! Once the user had logged in and was taken to the profile page, the flash message was produced...   
+![Logged In Flash](static/images/logged_in_flash.png)
+
+
+
 
 
 ## Life Cycle

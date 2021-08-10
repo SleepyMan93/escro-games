@@ -115,6 +115,9 @@ def profile(username):
 
     games = list(mongo.db.games.find())
 
+    if session.get('logged_in'):
+        flash("You are logged in")
+
     if session["user"]:
         return render_template("profile.html", username=username, games=games)
 
@@ -170,19 +173,13 @@ def edit_post(game_id):
 
 @app.route("/delete_post/<game_id>")
 def delete_post(game_id):
-    """
     # check if user is logged in (session user)
-    # if session["user"] == session["logged_in"]:
-        # checked logged in user against user of post or admin
-        # if request.form['username']} == session["user"]:
-            # if conditions are met, delete post
-            # mongo.db.games.remove({"_id": ObjectId(game_id)})
-        # else:
-            # return render_template("403.html")
+    # checked logged in user against user of post or admin
+    # if conditions are met, delete post
+    mongo.db.games.remove({"_id": ObjectId(game_id)})
     # else return error 403
 
-    # return redirect(url_for("profile", username=session["user"]))
-    """
+    return redirect(url_for("profile", username=session["user"]))
 
 
 @app.route("/game_page/<game_id>", methods=["GET", "POST"])

@@ -33,7 +33,8 @@ nav {
 
 #search input[type=text]:not(.browser-default) {
   border-bottom: none;
-  border: 1px solid rgba(240, 247, 239, 0.3);
+  border: 1px solid rgb(207 182 255);
+  border-radius: 8px;
 }
 
 .input-field .prefix {
@@ -80,6 +81,7 @@ main, section, footer {
 
 h4 {
    color: #F0F7F4;
+   font-variant-caps: all-petite-caps;
 }
 
 /* Home Page */
@@ -90,6 +92,12 @@ h4 {
   border-radius: 2px;
   overflow: visible;
   position: relative;
+}
+
+/* search box */
+
+#query {
+  width: 90%;
 }
 
 #search {
@@ -136,6 +144,7 @@ h4 {
   text-align: center;
   color: #F0F7F4;
   margin: 0 0 10px 0;
+  width: 55%;
   border-bottom: none;
   font-family: maven pro,sans-serif;
 }
@@ -159,18 +168,24 @@ h4 {
   background-color: #262829;
 }
 
-#game_title {
+.input-field>label {
+  color: #d1d1d1;
+}
+
+#publish_title {
   border:  1px solid rgba(240, 247, 239, 0.3);
   border-radius: 7px;
   padding-left: 10px;
   width: 98%;
+  color: #d1d1d1;
 }
 
-#game_description {
+#publish_description {
   height: 150px;
   border:  1px solid rgba(240, 247, 239, 0.3);
   border-radius: 7px;
   width: 98%;
+  color: #d1d1d1;
 }
 
 .game-label {
@@ -181,7 +196,83 @@ h4 {
   border:  1px solid rgba(240, 247, 239, 0.3) !important;
   border-radius: 7px !important;
   padding-left: 10px !important;
-  width: 98% !important;
+  width: 90% !important;
+  color: #d1d1d1;
+}
+
+textarea {
+  color: #d1d1d1;
+}
+
+/* genre dropdown */
+
+#select-options-de247580-7261-ac24-bf38-4c479e18ab4c {
+  display: block;
+  width: 336.219px;
+  left: 0px;
+  top: -1px;
+  height: 202px !important;
+  opacity: 1;
+  transform: scaleX(1) scaleY(1);
+}
+
+#select-options-72a99be7-5b32-7d40-42ab-f38a8e3fe4e0 {
+  height: 293px !important;
+}
+
+.select-wrapper input.select-dropdown {
+  color: #d1d1d1;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #636765;
+  padding-left: 10px;
+  height: 3rem;
+}
+
+.select-dropdown li.disabled, .select-dropdown li.disabled>span, .select-dropdown li.optgroup {
+  color: rgb(240 247 244);
+}
+
+.dropdown-content li>span {
+  color: #cfb6ff;
+  font-size: 14px;
+}
+
+.select-wrapper .caret {
+  fill: rgb(209 209 209);
+}
+
+/* datepicker */
+
+.datepicker-date-display {
+  background-color: #262829;
+}
+
+.datepicker-table-wrapper table tr.date-picker-row {
+  background: transparent;
+}
+
+.datepicker-table td {
+  border-radius: 0%;
+  padding: 0;
+}
+
+.datepicker-table td.is-selected {
+  background-color: #8c52ff;
+  color: #fff;
+}
+
+.datepicker-table td.is-today {
+  color: #cfb6ff;
+}
+
+/* edit form */
+
+#edit_title {
+  border:  1px solid rgba(240, 247, 239, 0.3);
+  border-radius: 7px;
+  padding-left: 10px;
+  width: 98%;
 }
 
 #editButton {
@@ -189,12 +280,14 @@ h4 {
 }
 
 .btn, .btn-large, .btn-small {
-  color: currentColor;
-  background-color: transparent;
+  font-family: maven pro,sans-serif;
+  background: #8c52ff;
+  border-radius: 8px;
+  color: rgb(255 255 255);
 }
 
-.btn, .btn-large, .btn-small, .btn-flat {
-  padding: 0px;
+.btn:hover, .btn-large:hover, .btn-small:hover {
+    background-color: #a77aff;
 }
 
 #editButton:visited {
@@ -346,7 +439,7 @@ main #genre_type {
   font-size: 14px;
   text-decoration: none;
   text-transform: uppercase;
-  background: #c405dd;
+  background: #8c52ff;
   display: inline-block;
   padding: 16px 38px;
   border: 2px solid transparent;
