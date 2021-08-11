@@ -3,7 +3,7 @@ Escro Games
 #### Code Institute Full Stack Development Dipoloma: Milestone Project 3 - Backend Development
 ##### Created by William Donovan
 
-![Project Displays](static/images/cover_photo)
+![Project Displays](static/images/cover_photo.png)
 [link to Project](https://escro-games.herokuapp.com/)
 
 # Table of Contents 
@@ -118,11 +118,12 @@ Link to [Wireframes](static/wireframes). I kept to the basic principles of my wi
 
 # Features / Future Implementations
 
-- Eventually I would like to implement a feature that allows users to search for development teams or when the dev team is saved on Mongo, have the site create a dedicated
-page for them and their releases.
+- Eventually I would like to implement a feature that allows users to search for development teams or when the dev team is saved on Mongo, have the site create a dedicated page for them and their releases.
 - The ability to include notifiaction awareness for the user would be a great feature to have them coming back.
 - Not really a difficult implementation but include the ability to purchse the game through our site or redirected to a place where that's possible.
 - Include a more detailed 'relevancy' dropdown section on my Library page that allows sorting by: "Most Recent", "Most Popular", "Genre" etc
+- Have an upvoting or liking system for each post for user interactivity.
+- I wish to make a post page for each individual post with all the information present.
 
 --------------------
 
