@@ -1,44 +1,45 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center-align">Register</h3>
-
     <div class="row">
-        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
-            <div class="card-panel">
+        <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('register') }}">
+            <h3 class="center-align">Create Profile</h3>
+            <div class="card-panel publish-form">
                 <div class="row">
                 <!-- username -->
-                    <div class="input-field col s6">
-                        <i class="fas fa-user-plus prefix light-blue-text text-darken-4"></i>
+                    <div class="input-field col s12">
+                        <i class="fas fa-user-plus prefix"></i>
                         <input id="username" name="username" type="text" minlength="5"
-                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
                         <label for="username">Username</label>
                     </div>
                 <!-- passowrd -->
-                    <div class="input-field col s6">
-                        <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
+                    <div class="input-field col s12">
+                        <i class="fas fa-user-lock prefix"></i>
                         <input id="password" name="password" type="password" minlength="5"
-                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
                         <label for="password">Password</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
-                        <i class="fas fa-id-card prefix light-blue-text text-darken-4"></i>
-                        <input name="name" id="name" type="text" class="validate">
+                    <div class="input-field col s12">
+                        <i class="fas fa-id-card prefix"></i>
+                        <input name="name" id="name" type="text">
                         <label for="name">Full Name</label>
                     </div>
-                    <div class="input-field col s6">
-                        <i class="fas fa-envelope prefix light-blue-text text-darken-4"></i>
-                      <input id="email" name="email" type="email" class="validate">
+                    <div class="input-field col s12">
+                        <i class="fas fa-envelope prefix"></i>
+                      <input id="email" name="email" type="email">
                       <label for="email">Email</label>
                     </div>
                 </div>
                 <!-- register -->
                 <div class="row">
-                    <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
-                        Register <i class="fas fa-sign-in-alt"></i>
-                    </button>
+                    <div class="col s12 center-align">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">
+                            Register
+                        </button>
+                    </div>
                 </div>
             </div>
         </form>
@@ -48,7 +49,7 @@
         <div class="col s12">
             <p class="center-align">
                 Already Registered?
-                <a href="{{ url_for('login') }}">Log In</a>
+                <a class="register-link" href="{{ url_for('login') }}">Log In Here</a>
             </p>
         </div>
     </div>

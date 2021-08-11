@@ -1,3 +1,5 @@
+/* global styling */
+
 body {
   background-color: #060C17;
   color: #F0F7F4;
@@ -16,6 +18,10 @@ main, section, footer {
   main, section, footer {
     padding-left: 0;
   }
+}
+
+i {
+  color: #cfb6ff;
 }
 
 
@@ -59,9 +65,9 @@ a {
   left: 6rem;
 }
 
-.input-field>label:not(.label-icon).active {
-  display: none;
-}
+.input-field>label:not(.label-icon).active { 
+  display: none; 
+} 
 
 .col .search-box {
   margin-left: -.2rem;
@@ -72,6 +78,8 @@ a {
   border-bottom: none;
   border: 1px solid rgb(207 182 255);
   border-radius: 8px;
+  color: #f0f7f4;
+  text-align: center;
 }
 
 .input-field .prefix {
@@ -79,6 +87,45 @@ a {
   width: 3rem;
   font-size: 1.3rem;
   top: 2.4rem;
+}
+
+.input-field .prefix ~ input {
+  margin-top: 0rem;
+  border-radius: 7px;
+  border:  1px solid rgba(240, 247, 239, 0.3);
+  padding-left: 10px;
+  margin-left: 0.6rem;
+  width: 92%;
+}
+
+.input-field .prefix.active {
+  color: #cfb6ff;
+}
+
+.input-field>input[type]:-webkit-autofill:not(.browser-default):not([type="search"])+label {
+  transform: translateY(-25px) scale(1.1);
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly])+label {
+  color: #cfb6ff;
+}
+
+#passwordField {
+  margin-top: 2rem;
+}
+
+#username {
+  border:  1px solid rgba(240, 247, 239, 0.3);
+  border-radius: 7px;
+  color: #d1d1d1;
+  padding-left: 10px
+}
+
+#password {
+  border:  1px solid rgba(240, 247, 239, 0.3);
+  border-radius: 7px;
+  color: #d1d1d1;
+  padding-left: 10px;
 }
 
 /* sidenav */
@@ -210,6 +257,13 @@ hr {
 
 .publish-form {
   background-color: #1f2020;
+  margin-top: 0px;
+  border: 0.3px solid #f0f7f454;
+  border-top: 0px
+}
+
+.publish-row {
+  margin-bottom: 0px;
 }
 
 .input-field>label {
@@ -383,13 +437,13 @@ textarea {
 
 .btn, .btn-large, .btn-small {
   font-family: maven pro,sans-serif;
-  background: #8c52ff;
-  border-radius: 8px;
+  background: #a77aff;
+  border-radius: 7px;
   color: rgb(255 255 255);
 }
 
 .btn:hover, .btn-large:hover, .btn-small:hover {
-    background-color: #a77aff;
+    background-color: #a77affdb;
 }
 
 .right-align {
@@ -407,6 +461,21 @@ textarea {
 
 #editButton:focus {
   background-color: transparent;
+}
+
+/* login page */
+
+.register-link {
+  color: #cfb6ff;
+}
+
+h3 {
+  border: 0.3px solid #f0f7f454;
+  border-bottom: 0px;
+  padding: 10px;
+  margin-bottom: 0px;
+  font-size: 1.6rem;
+  background-color: #313131;
 }
 
 .dropdown-content li.divider {
