@@ -196,10 +196,6 @@ hr {
   color: #cfb6ff;
 }
 
-.post-details {
-  font-size: 1.5vw;
-}
-
 /* search box */
 
 #query {
@@ -655,6 +651,18 @@ main #genre_type {
 
 /* Media Queries */
 
+@media only screen and (min-width: 1200px) {
+  .post-details {
+    font-size: 1vw;
+    margin: 2.3rem 0px 2.3rem 0px;
+  }
+
+  .post-title {
+    font-size: 0.2vw
+  }
+
+}
+
 @media only screen and (min-width: 993px) {
   .container {
       width: 70%;
@@ -666,6 +674,70 @@ main #genre_type {
 
   .post-details {
     font-size: 1vw;
+    margin: 2.3rem 0px 2.3rem 0px;
+  }
+
+  .post-title {
+    font-size: 1.6vw
+  }
+
+  .row .col.l6 {
+    padding: 20px 10px 0px 10px;
+  }
+
+  #footer-links {
+    display: none;
+  }
+
+  .footer-underline {
+    margin-left: 10%;
+    width: 80%;
+}
+
+  h4 {
+    text-align: center;
+  }
+
+  .footer-message {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 993px) {
+  #footer-about {
+    display: none;
+  }
+
+  h4 {
+    text-align: center;
+  }
+
+  #footer-links {
+    padding-left: 0px
+  }
+
+  .site-links {
+    text-align: center;
+  }
+
+  .footer-underline {
+    margin-left: 10%;
+    width: 80%;
+}
+}
+
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+  .post-details {
+    font-size: 1.6vw;
+    margin: 2.3rem 0px 2.3rem 0px;
+  }
+
+  .post-title {
+    font-size: 2.8vw
+  }
+
+  .post-owner {
+    font-size: 1.2vw
   }
 }
 
@@ -674,5 +746,16 @@ main #genre_type {
       max-width: fit-content;
       height: auto;
       width: 300px;
+  }
+
+  .game-credentials {
+    width: 70% !important;
+  }
+  
+}
+
+@media only screen and (max-width: 600px) {
+  td, th {
+    padding: 10px;
   }
 }

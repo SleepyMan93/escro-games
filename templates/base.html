@@ -87,36 +87,36 @@
     <footer class="container">
         <hr>
         <div class=" row" id="footer-text">
-            <div class="col s6 m6" id="footer-about">
+            <div class="col s12 m12 l12" id="footer-about">
                 <h4>About </h4>
                 <hr class="footer-underline" align="left">
-                <p>Welcome to Escro! We are a new gaming network that allows you to share with others in
+                <p class="footer-message">Welcome to Escro! We are a new gaming network that allows you to share with others in
                     the community about you're new favourite releases.</p>
-                <p>© Escro Games 2021</p>
+                <p class="footer-message">© Escro Games 2021</p>
             </div>
-            <div class="col s6 m6" id="footer-links">
+            <div class="col s12 m12 l12" id="footer-links">
                 <h4>Sitemap</h4>
                 <hr class="footer-underline" align="left">
                 <div class="row">
                     <!-- Checks if user is logged in / show different footer links if not -->
-                    <div class="col s3">
+                    <div class="col s3 site-links">
                         <p><a href="{{ url_for('show_games') }}"><i class="material-icons">home</i></a></p>
                     </div>
-                    <div class="col s3">
+                    <div class="col s3 site-links">
                         <p><a href="{{ url_for('library') }}"><i class="material-icons">widgets</i></a></p>
                     </div>
                     {% if session.user %}
-                    <div class="col s3">
+                    <div class="col s3 site-links">
                         <p><a href="{{ url_for('publish') }}"><i class="material-icons">mode_edit</i></a></p>
                     </div>
-                    <div class="col s3">
+                    <div class="col s3 site-links">
                         <p><a href="{{ url_for('logout') }}"><i class="material-icons">logout</i></a></p>
                     </div>
                     {% else %} 
-                    <div class="col s3">
+                    <div class="col s3 site-links">
                         <p><a href="{{ url_for('login') }}"><i class="material-icons">person</i></a></p>
                     </div>
-                    <div class="col s3">
+                    <div class="col s3 site-links">
                         <p><a href="{{ url_for('register') }}"><i class="material-icons">person_add</i></a></p>
                     </div>
                     {% endif %}
