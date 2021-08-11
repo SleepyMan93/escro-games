@@ -33,40 +33,48 @@
         </nav>
 
         <ul id="slide-out" class="sidenav sidenav-fixed">
-            <div id="logo" class="row">
-                <img class="responsive-img" src="/static/images/escro_games_trans.png"  title="Escro Games Logo">
-            </div>
-            <div id="search" class="col s6 card-panel transparent">
-                <form action="{{ url_for('search') }}" method="post" class="col s12">
-                    <div class="row search-box valign-wrapper center-align ">
-                        <div class="input-field col s12 m3">
-                            <input type="text" name="query" id="query" minlength="3" required>
-                            <label class="search-label" for="query">Search</label>
+            <li>
+                <div id="logo" class="row">
+                    <img class="responsive-img" src="/static/images/escro_games_trans.png"  title="Escro Games Logo">
+                </div>
+            </li>
+            <li>
+                <div id="search" class="col s6 card-panel transparent">
+                    <form action="{{ url_for('search') }}" method="post" class="col s12">
+                        <div class="row search-box valign-wrapper center-align ">
+                            <div class="input-field col s12 m3">
+                                <input type="text" name="query" id="query" minlength="3" required>
+                                <label class="search-label" for="query">Search</label>
+                            </div>
                         </div>
+                    </form>
+                </div>
+            </li>
+            <li>
+                <hr class="divider">
+            </li>
+            <li>
+                <div class="row">
+                    <div class="top-links col s12">
+                        <li><a href="{{ url_for('show_games') }}"><i class="material-icons">home</i>Home</a></li>
+                        <li><a href="{{ url_for('library') }}"><i class="material-icons">widgets</i>Library</a></li>
+                        {% if session.user %}
+                        <li><a href="{{ url_for('publish') }}"><i class="material-icons">mode_edit</i>Create Post</a></li>
                     </div>
-                </form>
-            </div>
-            <hr class="divider">
-            <div class="row">
-                <div class="top-links col s12">
-                    <li><a href="{{ url_for('show_games') }}"><i class="material-icons">home</i>Home</a></li>
-                    <li><a href="{{ url_for('library') }}"><i class="material-icons">widgets</i>Library</a></li>
-                    {% if session.user %}
-                    <li><a href="{{ url_for('publish') }}"><i class="material-icons">mode_edit</i>Create Post</a></li>
+                    <div class="col s12">
+                        <li><a href="{{ url_for('profile', username=session['user']) }}"><i
+                                    class="material-icons">person</i>Profile</a></li>
+                        {% if session.user|lower == "admin"|lower %}
+                        <li><a href="{{ url_for('get_genres') }}"><i class="material-icons">view_list</i>Genres</a></li>
+                        {% endif %}
+                        <li><a href="{{ url_for('logout') }}"><i class="material-icons">logout</i>Log Out</a></li>
+                        {% else %}
+                        <li><a href="{{ url_for('login') }}"><i class="material-icons">person</i>Log In</a></li>
+                        <li><a href="{{ url_for('register') }}"><i class="material-icons">person_add</i>Register</a></li>
+                        {% endif %}
+                    </div>
                 </div>
-                <div class="col s12">
-                    <li><a href="{{ url_for('profile', username=session['user']) }}"><i
-                                class="material-icons">person</i>Profile</a></li>
-                    {% if session.user|lower == "admin"|lower %}
-                    <li><a href="{{ url_for('get_genres') }}"><i class="material-icons">view_list</i>Genres</a></li>
-                    {% endif %}
-                    <li><a href="{{ url_for('logout') }}"><i class="material-icons">logout</i>Log Out</a></li>
-                    {% else %}
-                    <li><a href="{{ url_for('login') }}"><i class="material-icons">person</i>Log In</a></li>
-                    <li><a href="{{ url_for('register') }}"><i class="material-icons">person_add</i>Register</a></li>
-                    {% endif %}
-                </div>
-            </div>
+            </li>
         </ul>
 
     </header>

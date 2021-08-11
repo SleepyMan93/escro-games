@@ -16,6 +16,7 @@
     <div class="container">
         <div class="row">
             <h4>Top Posts</h4>
+            <hr>
         </div>
     </div>
 
@@ -24,25 +25,16 @@
             <tbody>
                 {% for game in games %}
                 <tr>
-                    <td class="game-cell">
-                        <div class="image-container">
-                            <a href="#"><img class="home-game-pic responsive-img" src="{{ game.image_link }}" alt="profile pic" class="circle"></a>
-                        </div>
-                    </td>
-                    <td id="postInfo">
-                        <div class="row">
-                            <div class="col s8 m11">
-                                <span><strong>{{ game.game_title }}</strong></span> <span>#{{ game.genre_type|lower }}</span><br>
-                                <p>{{ game.game_description }}</p>
-                                <span><em>Posted by {{ game.created_by }}</em></span>
-                                </p>
+                    <td class="post-info">
+                        <div class="row home-row">
+                            <div class="col s12 m8 l6">
+                                <a href="#"><img class="home-game-pic" src="{{ game.image_link }}" alt="Profile Picture" class="circle"></a>
                             </div>
-                            <div id="ticker" class="col s4 m1">
-                                <button class="reaction" onclick="buttonClick();"><i class="material-icons">thumb_up</i></button>
-                                <input type="text" id="inc" value="0"></input>
-
-                                <button class="reaction" onclick="buttonClick();"><i class="material-icons">thumb_down</i></button>
-                                <input type="text" id="inc" value="0"></input>
+                            <div class="col s10 m4 l6">
+                                <span><strong>{{ game.game_title }}</strong></span> 
+                                <span class="genre-type">#{{ game.genre_type|lower }}</span><br>
+                                <p class="post-details">{{ game.game_description }}</p>
+                                <span><em>Posted by {{ game.created_by }}</em></span>
                             </div>
                         </div>
                     </td>

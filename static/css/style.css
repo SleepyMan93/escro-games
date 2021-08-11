@@ -110,6 +110,10 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label {
   color: #cfb6ff;
 }
 
+.select-wrapper input.select-dropdown:focus {
+  border-bottom: 1px solid #636765;
+}
+
 #passwordField {
   margin-top: 2rem;
 }
@@ -132,6 +136,10 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label {
 
 .container {
   max-width: 2500px;
+}
+
+#containerHome {
+  width: 70%;
 }
 
 .sidenav {
@@ -184,6 +192,14 @@ hr {
   position: relative;
 }
 
+.genre-type {
+  color: #cfb6ff;
+}
+
+.post-details {
+  font-size: 1.5vw;
+}
+
 /* search box */
 
 #query {
@@ -196,14 +212,24 @@ hr {
   box-shadow: 0 0px 0px 0 rgb(0 0 0 / 14%), 0 0px 0px 0px rgb(0 0 0 / 12%), 0 0px 0px 0 rgb(0 0 0 / 20%);
 }
 
+/* images */
+
 .image-container {
   text-align: center;
   max-width: 400px;
 }
 
-#gamePic {
+.game-pic {
   width: 400px;
-  height: 200px;
+  max-width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.home-game-pic {
+  max-width: 100%;
+  width: 400px;
+  height: 250px;
   object-fit: cover;
 }
 
@@ -217,7 +243,7 @@ hr {
   height: auto;
 }
 
-#postInfo .row .col.m11 {
+.post-info .row .col.m11 {
   width: 91.6666666667%;
   margin-left: auto;
   left: auto;
@@ -230,15 +256,10 @@ hr {
   padding: 0;
 }
 
-#inc {
-  background-color: transparent;
-  text-align: center;
-  color: #F0F7F4;
-  margin: 0 0 10px 0;
-  width: 55%;
-  border-bottom: none;
-  font-family: maven pro,sans-serif;
+.home-row {
+  padding-bottom: 0px;
 }
+
 
 .reaction {
   background-color: transparent;
@@ -246,7 +267,7 @@ hr {
 }
 
 .material-icons {
-  color: #F0F7F4;
+  color: #cfb6ff;
 }
 
 .collection .collection-item:last-child {
@@ -352,10 +373,6 @@ textarea {
   border: 1px solid #636765;
   padding-left: 10px;
   height: 3rem;
-}
-
-.select-wrapper input.select-dropdown:focus {
-  border-bottom: 1px solid #26a69a;
 }
 
 .select-dropdown li.disabled, .select-dropdown li.disabled>span, .select-dropdown li.optgroup {
@@ -478,6 +495,8 @@ h3 {
   background-color: #313131;
 }
 
+/* table styling */
+
 .dropdown-content li.divider {
   height: 0px;
 }
@@ -545,6 +564,13 @@ main #genre_type {
 .circle {
   border-radius: 0%;
 }
+
+/* library */
+
+.prices {
+  color: #cfb6ff;
+}
+
 
 /* custom 404 page */
 
@@ -631,11 +657,15 @@ main #genre_type {
 
 @media only screen and (min-width: 993px) {
   .container {
-      width: 90%;
+      width: 70%;
   }
 
   .game-cell {
     width: 400px;
+  }
+
+  .post-details {
+    font-size: 1vw;
   }
 }
 
