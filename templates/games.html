@@ -1,16 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- {% for game in games %}
-{{ game.game_title }}<br>
-{{ game.genre }}<br>
-{{ game.game_description }}<br>
-{{ game.created_by }}<br>
-{{ game.is_available }}<br>
-{{ game.price }}<br>
-{{ game.post_date }}<br>
-{% endfor %} -->
-
 
     {% if games|length > 0 %}
     <div class="container">
@@ -28,10 +18,10 @@
                     <td class="post-info">
                         <div class="row home-row">
                             <div class="col s12 m8 l6">
-                                <a href="#"><img class="home-game-pic" src="{{ game.image_link }}" alt="Profile Picture" class="circle"></a>
+                                <img class="home-game-pic" src="{{ game.image_link }}" alt="Profile Picture" class="circle">
                             </div>
                             <div class="col s10 m4 l6">
-                                <span class="post-title"><strong>{{ game.game_title }}</strong></span> 
+                                <span class="post-title"><strong>{{ game.game_title }}</strong></span>
                                 <span class="genre-type">#{{ game.genre_type|lower }}</span><br>
                                 <hr>
                                 <p class="post-details">{{ game.game_description }}</p>
@@ -44,7 +34,12 @@
         </table>
     </div>
     {% else %}
-    <h3 class="red-text center-align">No Results Found</h3>
+    <h3 class="center-align">No Results Found</h3>
+    <div id="notfound">
+        <div class="notfound">
+            <a href="{{ url_for('show_games') }}">Back To Homepage</a>
+        </div>
+    </div>
     {% endif %}
 
 {% endblock %}

@@ -25,9 +25,14 @@ Escro Games
    - App Functionality Testing
       * Setting up Flask Environment
       * Connecting Flask with MongoDB
-   - HTML and CSS checks using WC3 
+      * Python App Views
+      * Life Cycle
+   - HTML, CSS and Python checks
+      * HTML
+      * CSS
+      * Python
    - User Testing
-   - Peer Code Review
+   - Manual Testing
 3. [Bugs / De-bugging / Syntax Issues](#bugs)
 4. [Technologies Used](#languages)
    - Languages Utilised
@@ -108,9 +113,6 @@ Although this seemed like the best design choice, I actually ended up going with
 I also decided on pushing over the main nav to the left and having a sidenav contain my logo and page links. The overall feel kept the context of the page more condensed and a more library aspect to my site.
 - PIXTURE OF SIDENAV
 
-## Buttons
-
-
 # Sitemap / Wireframes
 
 
@@ -174,7 +176,6 @@ From here, after several tests, I simply had to ask if the user was logged in. I
 ![Defensive Programming Edit](static/images/defensive_programming_edit.png)    
 ![Defensive Programming Delete](static/images/defensive_programming_delete.png)
 
-
 ## Life Cycle
 
  - Below is a screenshot of the very early skeleton for my site. The **fixed side-nav** in place which is main design feature for my app. Basic **Jinja**, **Flask** and **Python** functionality in place:   
@@ -197,7 +198,8 @@ From here, after several tests, I simply had to ask if the user was logged in. I
 
 ## HTML and CSS checks
 
-### **Base.html**
+### HTML
+
 
 
 ## User Testing 
@@ -210,6 +212,54 @@ nothing had changed.
 
 - Attempted search function as user which works apart from when searching for a title. The search only worked if the complete title was entered which for the user
 isn't very convienient. Instead, I added in a search index which allows users to search for words in the game.description which should help with producing "No Results Found"
+
+## Manual Testing
+
+✔️ Navigation links: All redirect to the correct pages.
+
+✔️ Footer links: All redirect to the correct pages.
+
+✔️ Misc. links on website: All other links are working correctly.
+
+✔️ Try loading My Account page when not logged in: Get redirected to index.html.
+
+✔️ Try loading Posts page when not logged in: An error message appears asking user to log in/register.
+
+✔️ Try loading Add Post page when not logged in: An error message appears asking user to log in/register.
+
+✔️ Submit registration form with a user/email that already exists in database: An error message appears.
+
+✔️ Submit registration form with one of the fields not filled in: An error message appears asking user to fill in the field.
+
+✔️ Submit registration form with a new user/email that doesn't exist in database: Successfully sends user data to MongoDB and redirects user to their My Account page. 
+
+✔️ Submit Log In form if no username exists in database that matches entered username: Error message appears and asks user to try again.
+
+✔️ Submit Log In form if username is correct but password doesn't match: Error message appears and asks user to try again.
+
+✔️ Submit Log In form with one of the fields not filled in: An error message appears asking user to fill in the field.
+
+✔️ Submit log in form with correct username and password: Starts session and takes user to their My Account page. 
+
+✔️ Press the Sign Out button when logged in: Ends the session and sends user back to index.html. 
+
+✔️ Try adding a post when logged in: Successfully creates a post and redirects user to their My Account page only if all the fields are filled in correctly. If not, an error message appears.
+
+✔️ Try editing a post on the My Account page: Successfully updates post and redirects user to their Account page only if all the fields are filled in correctly. If not, an error message appears.
+
+✔️ Try deleting a post while on the Edit Post form: A modal pops up asking for confirmation. When confirmed, it successfully removes the post from the website and redirects to the My Account page. 
+
+✔️ Try navigating to Log In page when already logged in: Get redirected to My Account page.
+
+✔️ Try navigating to Register page when already logged in: Get redirected to My Account page.
+
+✔️ Filter posts on posts.html by country that has no posts: Get a message that no posts are available in the area with the option to go back to all posts or to add a new post. 
+
+✔️ Filter posts on posts.html by a country that has at least one available post: The matching posts appear and all posts from other countries disappear. 
+
+✔️ Press the delete account button on the My Account Page: Get a pop up message asking to confirm. When confirmed both the account and the posts made by the account get deleted from the database.
+
+✔️ Try logging in with the credentials from the deleted account: Get an error message. 
 
 
 # Bugs / De-Bugging / Syntax Issues<a name="bugs"></a>

@@ -15,51 +15,18 @@
 <div class="container">
         <div class="row">
             {% for game in games %}
-            <div class="col s6 m4">
-                <a href="#"><img class="game-pic" src="{{ game.image_link }}" alt="Library Picture" class="circle"></a>
-            </div>
-            {% endfor %}
-        </div>
-
-        <div class="row">
-            {% for game in games %}
-            <div class="col s6 m4">
-                <strong>{{ game.game_title }}</strong> <br>
-                <span>{{ game.dev_team }}</span> <br>
-                <span class="prices">{{ game.price }}</span>
+            <div class="col s12 m6 l3">
+                <img id="gamePic" class="game-pic" src="{{ game.image_link }}" alt="Library Game Picture">
+                <div class="col s12 m6 l3 library-details">
+                    <span class="library-title"><strong>{{ game.game_title }}</strong></span> <br>
+                    <span class="library-dev">{{ game.dev_team }}</span> <br>
+                    <span class="prices">{{ game.price }}</span>
+                </div>
             </div>
             {% endfor %}
         </div>
     </div>
 </div>
-
-<table>
-    <thead>
-      <tr>
-          <th></th>
-          <th></th>
-          <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr>
-        <td>Alvin</td>
-        <td>Eclair</td>
-        <td>$0.87</td>
-      </tr>
-      <tr>
-        <td>Alan</td>
-        <td>Jellybean</td>
-        <td>$3.76</td>
-      </tr>
-      <tr>
-        <td>Jonathan</td>
-        <td>Lollipop</td>
-        <td>$7.00</td>
-      </tr>
-    </tbody>
-  </table>
 
 {% else %}
 <h3 class="red-text center-align">No Results Found</h3>

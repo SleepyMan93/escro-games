@@ -63,6 +63,7 @@ a {
 
 .input-field.col .search-label {
   left: 6rem;
+  top: -1rem;
 }
 
 .input-field>label:not(.label-icon).active { 
@@ -567,6 +568,9 @@ main #genre_type {
   color: #cfb6ff;
 }
 
+.library-details {
+  width: auto !important;
+}
 
 /* custom 404 page */
 
@@ -700,6 +704,7 @@ main #genre_type {
 
   .footer-message {
     text-align: center;
+    padding: 0px 3rem 0px 3rem;
   }
 }
 
@@ -743,7 +748,7 @@ main #genre_type {
 
 @media only screen and (max-width: 850px) {
   img.game-pic, video.responsive-video {
-      max-width: fit-content;
+      max-width: 100%;
       height: auto;
       width: 300px;
   }
