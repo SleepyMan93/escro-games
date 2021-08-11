@@ -15,15 +15,15 @@
 <div class="container">
         <div class="row">
             {% for game in games %}
-            <div class="col s3">
-                <a href="{{ url_for('game_page', game_id=game._id) }}"><img class="game-pic responsive-img" src="{{ game.image_link }}" alt="profile pic" class="circle"></a>
+            <div class="col s4">
+                <a href="#"><img id="gamePic" class="responsive-img" src="{{ game.image_link }}" alt="Library Picture" class="circle"></a>
             </div>
             {% endfor %}
         </div>
 
         <div class="row">
             {% for game in games %}
-            <div class="col s3">
+            <div class="col s4">
                 <strong>{{ game.game_title }}</strong> <br>
                 <span>{{ game.dev_team }}</span> <br>
                 <span>{{ game.price }}</span>
@@ -35,16 +35,5 @@
 {% else %}
 <h3 class="red-text center-align">No Results Found</h3>
 {% endif %}
-
-
-    <div class="fixed-action-btn">
-        <a class="btn-floating btn-large red">
-            <i class="material-icons">menu_open</i>
-        </a>
-        <ul>
-            <li><a class="btn-floating red"><i class="material-icons">mode_edit</i></a></li>
-            <li><a class="btn-floating yellow darken-1"><i class="material-icons">widgets</i></a></li>
-        </ul>
-    </div>
 
 {% endblock %}

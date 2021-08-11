@@ -8,6 +8,10 @@ nav {
   background-color: #060C17;
 }
 
+#footer-text {
+  text-align: left;
+}
+
 #logo {
   padding-bottom: 0px;
 }
@@ -62,7 +66,7 @@ nav {
 }
 
 #slide-out li>a>i {
-  color: #F0F7F4;
+  color: #cfb6ff;
 }
 
 main, section, footer {
@@ -82,6 +86,18 @@ main, section, footer {
 h4 {
    color: #F0F7F4;
    font-variant-caps: all-petite-caps;
+}
+
+hr {
+  opacity: 0.3;
+}
+
+.divider {
+  width: 78%;
+}
+
+.sidenav .divider {
+  margin: 0px 0px 0px 20px;
 }
 
 /* Home Page */
@@ -111,9 +127,10 @@ h4 {
   max-width: 400px;
 }
 
-.game-pic {
+#gamePic {
   width: 400px;
-  height: auto;
+  height: 200px;
+  object-fit: cover;
 }
 
 .profile {
@@ -170,6 +187,19 @@ h4 {
 
 .input-field>label {
   color: #d1d1d1;
+}
+
+#publish_title:focus {
+  color: #f0f7f4;
+  outline: 0;
+  box-shadow: 0px 0px 1px 0rem rgb(207 182 255 / 90%);
+}
+
+/* removed green validation bottom border */
+input[type=text]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 0px;
+  -webkit-box-shadow: 0 0px 0 0;
+  box-shadow: 0 0px 0 0;
 }
 
 #publish_title {

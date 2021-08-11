@@ -46,6 +46,7 @@
                     </div>
                 </form>
             </div>
+            <hr class="divider">
             <div class="row">
                 <div class="top-links col s12">
                     <li><a href="{{ url_for('show_games') }}"><i class="material-icons">home</i>Home</a></li>
@@ -70,23 +71,34 @@
 
     </header>
 
-    <section>
-        <!-- flash messages -->
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-        <div class="row flashes">
-            <h4 class="center-align">{{ message }}</h4>
-        </div>
-        {% endfor %}
-        {% endif %}
-        {% endwith %}
-    </section>
-
     <main>
         {% block content %}
         {% endblock %}
     </main>
+
+    <footer class="container">
+        <hr>
+        <div class=" row" id="footer-text">
+            <div class="col s6 m6" id="footer-about">
+                <h4>About: </h4>
+                <p>Welcome to Escro! We are a new gaming network that allows you to share with others in
+                    the community about you're new favourite releases.</p>
+                <p>© Escro Games 2021</p>
+            </div>
+            <div class="col s6 m6" id="footer-links">
+                <h4> Sitemap:</h4>
+                <!-- Checks if user is logged in / show different footer links if not -->
+                <p><a href="{{ url_for('show_games') }}">Home</a></p>
+                <p><a href="{{ url_for('library') }}">Library</a></p>
+                {% if session.user %}
+                <p><a href="{{ url_for('publish') }}">Create Post</a></p>
+                <p><a href="{{ url_for('logout') }}">Log Out</a></p>
+                {% else %} 
+                <p><a href="{{ url_for('login') }}">Log In</a></p>
+                <p><a href="{{ url_for('register') }}">Register</a></p>
+                {% endif %}
+            </div>
+        </div>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"

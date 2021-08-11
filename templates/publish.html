@@ -13,7 +13,7 @@
                 <!-- game title -->
                 <div class="row">
                     <div class="input-field col s12">
-                        <input placeholder="Title" id="publish_title" name="game_title" type="text" class="validate"
+                        <input placeholder="Title" id="publish_title" name="game_title" type="text" class="publish-control"
                             required>
                         <label for="game_title"></label>
                     </div>
@@ -21,7 +21,7 @@
                 <!-- choose genre -->
                 <div class="row">
                     <div class="input-field col s5">
-                        <select id="genre_type" name="genre_type" class="validate" required>
+                        <select id="genre_type" name="genre_type" class="publish-control" required>
                             <option value="" disabled selected>Choose Genre</option>
                             {% for genre in genres %}
                             <option value="{{ genre.genre_type }}">{{ genre.genre_type }}</option>
@@ -33,29 +33,29 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <textarea id="publish_description" name="game_description" minlength="5" maxlength="300"
-                            class="textarea-materialize validate" required></textarea>
+                            class="textarea-materialize publish-control" required></textarea>
                         <label class="game-label" for="game_description">Description</label>
                     </div>
                 </div>
                 <!-- game details -->
                 <div class="row">
                     <div class="input-field col s3">
-                        <input placeholder="Price" id="price" name="price" type="text" class="game-credentials validate" required>
+                        <input placeholder="Price" id="price" name="price" type="text" class="game-credentials publish-control" required>
                         <label for="price"></label>
                     </div>
                     <div class="input-field col s3">
-                        <input placeholder="Dev Team" id="dev_team" name="dev_team" type="text" class="game-credentials validate"
+                        <input placeholder="Dev Team" id="dev_team" name="dev_team" type="text" class="game-credentials publish-control"
                             required>
                         <label for="dev_team"></label>
                     </div>
                     <div class="input-field col s3">
-                        <input placeholder="Image Link" id="image_link" name="image_link" type="text" class="game-credentials validate"
+                        <input placeholder="Image Link" id="image_link" name="image_link" type="text" class="game-credentials publish-control"
                             required>
                         <label for="image_link"></label>
                     </div>
                     <div class="input-field col s3">
                         <input placeholder="Release Date" id="release_date" name="release_date" type="text"
-                            class="game-credentials datepicker validate" required>
+                            class="game-credentials datepicker" required>
                         <label for="release_date"></label>
                     </div>
                 </div>
