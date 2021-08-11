@@ -3,7 +3,7 @@
 body {
   background-color: #060C17;
   color: #F0F7F4;
-  font-family: maven pro,sans-serif;
+  font-family: 'Maven Pro', sans-serif;
 }
 
 nav {
@@ -756,6 +756,12 @@ main #genre_type {
   .game-credentials {
     width: 70% !important;
   }
+
+  body{
+    /* Hide Scroll bar */
+    overflow-x: hidden;
+  }
+
   
 }
 

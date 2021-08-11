@@ -4,7 +4,7 @@ Escro Games
 ##### Created by William Donovan
 
 ![Project Displays](static/images/cover_photo)
-[link to Project]()
+[link to Project](https://escro-games.herokuapp.com/)
 
 # Table of Contents 
 
@@ -92,13 +92,13 @@ Developer Goals:
 # Design Principles
 
 ## Fonts
+For my font style I went with ['Maven Pro', sans-serif](https://fonts.google.com/specimen/Maven+Pro). I felt the style and shape really suited how I wanted
+the app to feel. 
 
    
 ## Icons
-
-
-## Colours
-
+For my icons, because I chose to use Materialize as my framework, I decided to use [Google Font Icons](https://fonts.google.com/icons). 
+It was a lot better for compatibility and again suited the overall theme of Materialize and the font.
 
 ## Layout
 For this project I will be trying out the Materialize Design Framework. It feels simialr to Bootstrap but the components seem to work better with the design layout the app is aiming to achieve.   
@@ -108,14 +108,13 @@ After initialising my functions and basic app inputs, the first deisgn layout de
 ![Collections Component](static/images/collections_component.png)
 
 Although this seemed like the best design choice, I actually ended up going with the Materialize table layout as my main structure. 
-- INSERT PICTURE OF HOMEPAGE
+![Home Page Design](static/images/home_page.png)
 
 I also decided on pushing over the main nav to the left and having a sidenav contain my logo and page links. The overall feel kept the context of the page more condensed and a more library aspect to my site.
-- PIXTURE OF SIDENAV
 
 # Sitemap / Wireframes
 
-
+Link to [Wireframes](static/wireframes). I kept to the basic principles of my wireframes but as the project developed, I felt certain features looked better on different pages.
 
 # Features / Future Implementations
 
@@ -355,19 +354,19 @@ Once these files are successfully pushed to GitHub, make sure to **Enable Automa
 #### Clone the repository and run locally:
 
 1. Navigate to the repository from the Github Dashboard
-1. Select the green button in the top right of the screen that says "Clone or download"
+1. Select the "Code" button, top right of the frame 
 1. Click on the clipboard icon to the right of the URL to copy it
 1. Open an Integrated Development Environment (IDE) and head over to the terminal
 1. Change the directory to where you want to clone the repository to
-1. Execute the following command by pasting in the URL you copied in step 3: git clone https://github.com/debrawolford/treat-your-pup.git
+1. Execute the following command by pasting in the URL you copied in step 3: git clone https://github.com/SleepyMan93/escro-games
 1. Press Enter
 1. The site will then be cloned
 1. Install all the project dependencies by typing `pip install -r requirements.txt`
 
 #### Set Up Environment Variables:
 
-1. Create an env.py file in your root directory.
-1. Add env.py file to the.gitignore file.
+1. Create an env.py file in your root directory. **touch env.py** in the terminal.
+1. Type env.py into the.gitignore file and click save.
 1. Add the following to your env.py file with the applicable variables: 
 ```
 import os
@@ -381,9 +380,11 @@ os.environ["SECRET_KEY"] = "Your Secret Key"
 
 
 # References <a name="references"></a>
-- Aside from StackOverflow [StackOverflow]
+- Aside from [StackOverflow](htttps://www.stackoverflow.com) and some basics from the Code Institute Mini Project, all the code was produced by me.
 
 # Acknowledgements <a name="acknowledge"></a>
+I'd really love to thank Gerry my Tutor for helping me with my project. He gave me some great insight into principles, structure and 
+overall any problems I had. 
 
 
 
