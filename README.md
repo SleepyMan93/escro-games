@@ -3,7 +3,7 @@ Escro Games
 #### Code Institute Full Stack Development Dipoloma: Milestone Project 3 - Backend Development
 ##### Created by William Donovan
 
-![Project Displays]()
+![Project Displays](static/images/cover_photo)
 [link to Project]()
 
 # Table of Contents 
@@ -40,7 +40,7 @@ Escro Games
    - Tools and Databases Used
 5. [Project Deployment](#deployment)
    - Process of Deployment
-   - How to create local version
+   - How to create Local Version
 6. [References](#references)
 7. [Acknowledgements](#acknowledge)
 
@@ -196,10 +196,16 @@ From here, after several tests, I simply had to ask if the user was logged in. I
 ![Publish Boilerplate](static/images/publish_boilerplate.png)
 
 
-## HTML and CSS checks
+## HTML CSS and Python validation checks
 
 ### HTML
-
+* [HTML Validator](https://validator.w3.org/) was used to validate. I copied out each page source and ran through the validator. My main problem was when looping in Jinja, IDs were replicated for each instance. Went back and used classes instead. Very few errors except random non closure of divs / li which are not present.
+### CSS
+* [CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate. No errors were found. I received a CSS + Level 3 SVG.    
+![CSS Validation Certificate](static/images/css_validation.png)
+### Python
+* [PEP8](http://pep8online.com/) was used to validate. No errors found.
+![PEP8 Validation](static/images/pep8_validation.png)
 
 
 ## User Testing 
@@ -219,45 +225,33 @@ isn't very convienient. Instead, I added in a search index which allows users to
 
 ✔️ Footer links: All redirect to the correct pages.
 
-✔️ Misc. links on website: All other links are working correctly.
+✔️ Try deleting Posts when not logged in: A 403 error page appears asking user to log in/register.
 
-✔️ Try loading My Account page when not logged in: Get redirected to index.html.
+✔️ Try loading an unrecognised link page: A 404 error page appears sending the user back to the homepage.
 
-✔️ Try loading Posts page when not logged in: An error message appears asking user to log in/register.
-
-✔️ Try loading Add Post page when not logged in: An error message appears asking user to log in/register.
-
-✔️ Submit registration form with a user/email that already exists in database: An error message appears.
+✔️ Submit registration form with a user/email that already exists in database: User is prevented from signingin. A flash message is produced stating the username already exists.
 
 ✔️ Submit registration form with one of the fields not filled in: An error message appears asking user to fill in the field.
 
-✔️ Submit registration form with a new user/email that doesn't exist in database: Successfully sends user data to MongoDB and redirects user to their My Account page. 
+✔️ Submit registration form with a new user/email that doesn't exist in database: Successfully sends user data to MongoDB and redirects user to the Home page. 
 
-✔️ Submit Log In form if no username exists in database that matches entered username: Error message appears and asks user to try again.
+✔️ Submit Log In form if no username exists in database that matches entered username: Error message appears stating incorrect username and/or password.
 
-✔️ Submit Log In form if username is correct but password doesn't match: Error message appears and asks user to try again.
+✔️ Submit Log In form if username is correct but password doesn't match: User is prevented from signing in. An Error message appears stating incorrect username and/or password.
 
 ✔️ Submit Log In form with one of the fields not filled in: An error message appears asking user to fill in the field.
 
-✔️ Submit log in form with correct username and password: Starts session and takes user to their My Account page. 
+✔️ Submit log in form with correct username and password: Starts session and takes user to the Home page. 
 
-✔️ Press the Sign Out button when logged in: Ends the session and sends user back to index.html. 
+✔️ Press the Sign Out button when logged in: Ends the session and sends user back to login.html. 
 
-✔️ Try adding a post when logged in: Successfully creates a post and redirects user to their My Account page only if all the fields are filled in correctly. If not, an error message appears.
+✔️ Try adding a post when logged in: Successfully creates a post and redirects user to their Profile page only if all the fields are filled in correctly. 
 
-✔️ Try editing a post on the My Account page: Successfully updates post and redirects user to their Account page only if all the fields are filled in correctly. If not, an error message appears.
+✔️ Try editing a post on the My Account page: Successfully renders in original game information, updates post and renders the new information on the edit page only if all the fields are filled in correctly. If not, an error message appears.
 
-✔️ Try deleting a post while on the Edit Post form: A modal pops up asking for confirmation. When confirmed, it successfully removes the post from the website and redirects to the My Account page. 
+✔️ Try deleting a post while on the Profile page: User successfully deletes post and is taken back to their profile with the post removed
 
-✔️ Try navigating to Log In page when already logged in: Get redirected to My Account page.
-
-✔️ Try navigating to Register page when already logged in: Get redirected to My Account page.
-
-✔️ Filter posts on posts.html by country that has no posts: Get a message that no posts are available in the area with the option to go back to all posts or to add a new post. 
-
-✔️ Filter posts on posts.html by a country that has at least one available post: The matching posts appear and all posts from other countries disappear. 
-
-✔️ Press the delete account button on the My Account Page: Get a pop up message asking to confirm. When confirmed both the account and the posts made by the account get deleted from the database.
+✔️ Search posts on site: If results found, post is rendered on the home page. If no results, message stating no results found and a return to home page button produced. 
 
 ✔️ Try logging in with the credentials from the deleted account: Get an error message. 
 
@@ -320,14 +314,21 @@ Encountered a bug when trying to upload and edit posts. All the game credentials
 # Technologies Used <a name="languages"></a>
 
 1. [jQuery](https://jquery.com/)
+2. [Materialize](https://https://materializecss.com/)
 3. [CSS 4](https://www.w3schools.com/w3css/)
 5. [HTML 5](https://en.wikipedia.org/wiki/HTML5)
 6. [JavaScript](https://www.javascript.com/)
 7. [Dev Tools](http://ami.responsivedesign.is/)
+8. [jQuery](https://jquery.com/)
+9. [Python](https://www.python.org/)
+10. [MongoDB](https://www.mongodb.com/)
+11. [Heroku](https://heroku.com)
+12. [Flask](https://flask.palletsprojects.com/en/2.0.x/)
 
 # Project Deployment <a name="deployment"></a>
 ## Process of deployment
-Heroku:  
+
+#### Heroku:  
 
 1. _For the Heroku app to successfully understand what **Framework Requirements** and Python applications to run, a **Procfile** and **requirements.txt** are a must..._  
 
@@ -349,8 +350,38 @@ Under the settings tab you will find the **Config Vars** section. Reveal the sec
 
 Once these files are successfully pushed to GitHub, make sure to **Enable Automatic Deploy**. You can then click **Deploy Branch**, generally **main** or **master**. The Heroku app will take a few minutes to set up the connection. Once successful, every commit pushed to GitHub will update the Heroku app and Live Site.
 
+## How to create Local Version
+
+#### Clone the repository and run locally:
+
+1. Navigate to the repository from the Github Dashboard
+1. Select the green button in the top right of the screen that says "Clone or download"
+1. Click on the clipboard icon to the right of the URL to copy it
+1. Open an Integrated Development Environment (IDE) and head over to the terminal
+1. Change the directory to where you want to clone the repository to
+1. Execute the following command by pasting in the URL you copied in step 3: git clone https://github.com/debrawolford/treat-your-pup.git
+1. Press Enter
+1. The site will then be cloned
+1. Install all the project dependencies by typing `pip install -r requirements.txt`
+
+#### Set Up Environment Variables:
+
+1. Create an env.py file in your root directory.
+1. Add env.py file to the.gitignore file.
+1. Add the following to your env.py file with the applicable variables: 
+```
+import os
+os.environ["MONGO_URI"] = "mongodb+srv://username:password@myfirstcluster-strtg.mongodb.net/plant_swap?retryWrites=true&w=majority"
+os.environ["IP"] = "0.0.0.0"
+os.environ["PORT"] = "5000"
+os.environ["SECRET_KEY"] = "Your Secret Key"
+```
+
+[Back to Top](#table-of-contents)
+
 
 # References <a name="references"></a>
+- Aside from StackOverflow [StackOverflow]
 
 # Acknowledgements <a name="acknowledge"></a>
 
