@@ -194,22 +194,30 @@ def publish():
 def edit_post(game_id):
     """
     Function to update user posts. Using the ObjectId, the post is
-    updated once again using the POST method. User is presented with 
+    updated once again using the POST method. User is presented with
     original post and the updated version once posted.
     """
-    if request.method == "POST":
-        submit = {
-            "genre_type": request.form.get("genre_type"),
-            "game_title": request.form.get("game_title"),
-            "game_description": request.form.get("game_description"),
-            "price": request.form.get("price"),
-            "dev_team": request.form.get("dev_team"),
-            "image_link": request.form.get("image_link"),
-            "release_date": request.form.get("release_date"),
-            "created_by": session["user"]
-        }
-        mongo.db.games.update({"_id": ObjectId(game_id)}, submit)
-        flash("UPDATED")
+    # check if user is logged in (session user)
+    if 'user' in session:
+        # checked logged in user against user of post or admin
+        if session["user"]:
+            # if conditions are met, delete post
+            if request.method == "POST":
+                submit = {
+                    "genre_type": request.form.get("genre_type"),
+                    "game_title": request.form.get("game_title"),
+                    "game_description": request.form.get("game_description"),
+                    "price": request.form.get("price"),
+                    "dev_team": request.form.get("dev_team"),
+                    "image_link": request.form.get("image_link"),
+                    "release_date": request.form.get("release_date"),
+                    "created_by": session["user"]
+                }
+                mongo.db.games.update({"_id": ObjectId(game_id)}, submit)
+                flash("Successfully Updated")
+    else:
+        # else return error 403
+        return render_template("403.html")
 
     game = mongo.db.games.find_one({"_id": ObjectId(game_id)})
     genres = mongo.db.genres.find().sort("genre_type", 1)

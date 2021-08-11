@@ -33,16 +33,17 @@ Escro Games
       * Python
    - User Testing
    - Manual Testing
-3. [Bugs / De-bugging / Syntax Issues](#bugs)
-4. [Technologies Used](#languages)
+3. [Mongo Databse](#mongodb)
+4. [Bugs / De-bugging / Syntax Issues](#bugs)
+5. [Technologies Used](#languages)
    - Languages Utilised
    - Online Material
    - Tools and Databases Used
-5. [Project Deployment](#deployment)
+6. [Project Deployment](#deployment)
    - Process of Deployment
    - How to create Local Version
-6. [References](#references)
-7. [Acknowledgements](#acknowledge)
+7. [References](#references)
+8. [Acknowledgements](#acknowledge)
 
 
 # UX Development <a name="uxdev"></a>
@@ -254,6 +255,48 @@ isn't very convienient. Instead, I added in a search index which allows users to
 ✔️ Search posts on site: If results found, post is rendered on the home page. If no results, message stating no results found and a return to home page button produced. 
 
 ✔️ Try logging in with the credentials from the deleted account: Get an error message. 
+
+# Mongo Database 
+
+My databse consisted of 4 collections: Games, Users and Genres:
+![Mongo Collections](static/images/mongo_collections.png)
+
+
+### Games
+
+Stores all posts made by users.
+Key | Value | Type
+----|--------|------
+_id | Automatically generated number | ObjectId
+genre_type | Genre of game | string
+game_title | Title of game | string
+game_description | Message made with post | string
+price | Price of game | string
+dev_team | Dev Team who made the game | string
+image_link | Link used to render image for post | string
+release_date | When game was released or set to be | string
+created_by | User who made the post | string
+
+### Users
+
+Stores all user accounts. 
+
+Key | Value | Type
+----|--------|------
+_id | Automatically generated number | ObjectId
+username | Unique Username | string
+password | Hashed password | binary
+name | Full Name of user | string
+email | EMail used to signup | string
+
+### Genres
+
+Stores all user accounts. 
+
+Key | Value | Type
+----|--------|------
+_id | Automatically generated number | ObjectId
+genre_type | Genre of Game | string
 
 
 # Bugs / De-Bugging / Syntax Issues<a name="bugs"></a>
