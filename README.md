@@ -148,6 +148,11 @@ _After changing "is" to "if", my test function produced "Hello World!" on the te
 ![Test Connection Preview](static/images/mongo_db_data.png)    
 
 ### **Python App Views**
+- All my app views for CRUD worked with no isses except for the UPDATE stage. I encountered most of my issues with this part of the app functionality.
+The most important error that I had to fix when testing the final app was submitting the users changes. Initially when the "Submit" button was pressed, the page would 
+only reload and the data was not updated. EVentually I found that and the "delete" function shared a similar issue. The IDs I had used to target the inputs and buttons were
+used twice accross the "publish" page and the "edit" page because they had the same boiler plate. Once I made the IDs unique, the information was deleted and updated correctly
+
 - Once my basic CRUD functionality was in place, the aim was to redesign the app direction so that on the users profile they could only see their posts. At first I wasn't able to even get the game list to render in but realised I was trying to load the list in the wrong view...
 ![User Game Function](static/images/user_game_function.png)     
 
@@ -168,9 +173,6 @@ SUCCESS! Once the user had logged in and was taken to the profile page, the flas
 From here, after several tests, I simply had to ask if the user was logged in. If so, is the user the same user as the game.created_by and if that condition is met, the game could be deleted or edited. I produced the else statement in line with, if there was no user.session.logged_in, then the app would redirect to the error403 (forbidden) page...
 ![Defensive Programming Edit](static/images/defensive_programming_edit.png)    
 ![Defensive Programming Delete](static/images/defensive_programming_delete.png)
-
-
-
 
 
 ## Life Cycle
@@ -199,6 +201,15 @@ From here, after several tests, I simply had to ask if the user was logged in. I
 
 
 ## User Testing 
+
+- Tested delete and edit button on the profile page as user. The button appeared to work for edit, taking me to the correct boilerplate and app view but the delete
+function would only delete the first game document for that user. 
+
+- Tried testing all the CRUD functionalites as a user. Everything worked apart from the UPDATE part. When I went to submit my edit, the page simply reloaded and 
+nothing had changed. 
+
+- Attempted search function as user which works apart from when searching for a title. The search only worked if the complete title was entered which for the user
+isn't very convienient. Instead, I added in a search index which allows users to search for words in the game.description which should help with producing "No Results Found"
 
 
 # Bugs / De-Bugging / Syntax Issues<a name="bugs"></a>

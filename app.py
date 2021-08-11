@@ -151,22 +151,19 @@ def publish():
 
 @app.route("/edit_post/<game_id>", methods=["GET", "POST"])
 def edit_post(game_id):
-    if 'user' in session:
-        if session["user"]:
-            if request.method == "POST":
-                submit = {
-                    "genre_type": request.form.get("genre_type"),
-                    "game_title": request.form.get("game_title"),
-                    "game_description": request.form.get("game_description"),
-                    "price": request.form.get("price"),
-                    "dev_team": request.form.get("dev_team"),
-                    "image_link": request.form.get("image_link"),
-                    "release_date": request.form.get("release_date"),
-                    "created_by": session["user"]
-                }
-                mongo.db.games.update({"_id": ObjectId(game_id)}, submit)
-    else:
-        return render_template("403.html")
+    if request.method == "POST":
+        submit = {
+            "genre_type": request.form.get("genre_type"),
+            "game_title": request.form.get("game_title"),
+            "game_description": request.form.get("game_description"),
+            "price": request.form.get("price"),
+            "dev_team": request.form.get("dev_team"),
+            "image_link": request.form.get("image_link"),
+            "release_date": request.form.get("release_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.games.update({"_id": ObjectId(game_id)}, submit)
+        flash("UPDATED")
 
     game = mongo.db.games.find_one({"_id": ObjectId(game_id)})
     genres = mongo.db.genres.find().sort("genre_type", 1)
@@ -187,14 +184,6 @@ def delete_post(game_id):
         return render_template("403.html")
 
     return redirect(url_for("profile", username=session["user"]))
-
-
-@app.route("/game_page/<game_id>", methods=["GET", "POST"])
-def game_page(game_id):
-    games = list(mongo.db.games.find())
-    mongo.db.games.find({"_id": ObjectId(game_id)})
-
-    return render_template("game_page.html", games=games)
 
 
 @app.route("/get_genres")
