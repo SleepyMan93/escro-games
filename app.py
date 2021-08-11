@@ -110,18 +110,16 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's username from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
     games = list(mongo.db.games.find())
 
     if session.get('logged_in'):
-        flash("You are logged in")
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
 
     if session["user"]:
         return render_template("profile.html", username=username, games=games)
-
-    return redirect(url_for("login"))
+    else:
+        return redirect(url_for("login"))
 
 
 @app.route("/logout")
@@ -153,18 +151,22 @@ def publish():
 
 @app.route("/edit_post/<game_id>", methods=["GET", "POST"])
 def edit_post(game_id):
-    if request.method == "POST":
-        submit = {
-            "genre_type": request.form.get("genre_type"),
-            "game_title": request.form.get("game_title"),
-            "game_description": request.form.get("game_description"),
-            "price": request.form.get("price"),
-            "dev_team": request.form.get("dev_team"),
-            "image_link": request.form.get("image_link"),
-            "release_date": request.form.get("release_date"),
-            "created_by": session["user"]
-        }
-        mongo.db.games.update({"_id": ObjectId(game_id)}, submit)
+    if 'user' in session:
+        if session["user"]:
+            if request.method == "POST":
+                submit = {
+                    "genre_type": request.form.get("genre_type"),
+                    "game_title": request.form.get("game_title"),
+                    "game_description": request.form.get("game_description"),
+                    "price": request.form.get("price"),
+                    "dev_team": request.form.get("dev_team"),
+                    "image_link": request.form.get("image_link"),
+                    "release_date": request.form.get("release_date"),
+                    "created_by": session["user"]
+                }
+                mongo.db.games.update({"_id": ObjectId(game_id)}, submit)
+    else:
+        return render_template("403.html")
 
     game = mongo.db.games.find_one({"_id": ObjectId(game_id)})
     genres = mongo.db.genres.find().sort("genre_type", 1)
@@ -173,11 +175,16 @@ def edit_post(game_id):
 
 @app.route("/delete_post/<game_id>")
 def delete_post(game_id):
+
     # check if user is logged in (session user)
-    # checked logged in user against user of post or admin
-    # if conditions are met, delete post
-    mongo.db.games.remove({"_id": ObjectId(game_id)})
-    # else return error 403
+    if 'user' in session:
+        # checked logged in user against user of post or admin
+        if session["user"]:
+            # if conditions are met, delete post
+            mongo.db.games.remove({"_id": ObjectId(game_id)})
+    else:
+        # else return error 403
+        return render_template("403.html")
 
     return redirect(url_for("profile", username=session["user"]))
 

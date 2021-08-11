@@ -1,6 +1,6 @@
 Escro Games
 
-#### Code Institute Full Stack Development Dipoloma: Milestone Project 3 - Backend Development Milestone Project 
+#### Code Institute Full Stack Development Dipoloma: Milestone Project 3 - Backend Development
 ##### Created by William Donovan
 
 ![Project Displays]()
@@ -81,7 +81,7 @@ Developer Goals:
 - As a games developer, I want to be able to search so that I can see if our catalogue is online yet.
 - As the developer, I want a bump (upVote) feature so that I have alphanumeric data about each game.
 - As a user, the ability to check the status of my post and see how successful it was via the upVotes.
-- As a user and games developer, I want to be able to post about games.
+- As a user and games developer, I want to be able to share information about games and find similar games myself.
 
 
 # Design Principles
@@ -129,13 +129,13 @@ page for them and their releases.
 
 ## App Functionality Testing
 
-## Setting up Flask environment
+### **Setting up Flask environment**
 - To initialise my Flask environment, app.py and env.py were created. Inside my env.py file, all the default environment variables needed to connect to Flask and the database "escro_games" on MongoDB. Below is a screenshot of my app.py initialisation, when run for the first time, it was unsuccessful due to a syntax error...  
 
 _After changing "is" to "if", my test function produced "Hello World!" on the test site. Flask is now successfully initialised and working_
 ![Syntax Error](static/images/syntax_error_app_test.png)  
 
-## Connecting Flask with MongoDB
+### **Connecting Flask with MongoDB**
 - After installing frameworks **flask-pymongo** and **dnspython** and importing them into the app, I created a simple app function that would populate **game.html** with the **values** from the **games** collection on MongoDB. 
 ![Connection Function](static/images/test_connection_function.png)  
 
@@ -147,7 +147,7 @@ _After changing "is" to "if", my test function produced "Hello World!" on the te
 - My test function produced no errors or bugs and so the connection between Flask and Mongo was successful...
 ![Test Connection Preview](static/images/mongo_db_data.png)    
 
-## Python App Views
+### **Python App Views**
 - Once my basic CRUD functionality was in place, the aim was to redesign the app direction so that on the users profile they could only see their posts. At first I wasn't able to even get the game list to render in but realised I was trying to load the list in the wrong view...
 ![User Game Function](static/images/user_game_function.png)     
 
@@ -157,11 +157,17 @@ The solution wasn't found in creating another app view but simply an error in fo
 
 ![Profile Only Post](static/images/profile_only_post.png)
 
+- A similar error was occuring when trying to Edit and Delete posts. Now the Profile page loaded only the specific user's posts, with all the correct information injected into the table. However, the buttons, even though correctly taking you to the edit page or deleting the post, only the first game document would be affected. 
+
 - With all my functions for CRUD working, I wanted to put some defensive programming into the app which stops people from forcing their way onto profiles and deleting posts that are not their property. My first stage was to make sure the session['user'] was session['logged_in']. To check this, I put an **if** condition in my profile view that when the user logs in, if session['logged_in'] == True, a flash message would appear....
 ![Session Logged In Check](static/images/session_logged_in_check.png)    
 
 SUCCESS! Once the user had logged in and was taken to the profile page, the flash message was produced...   
 ![Logged In Flash](static/images/logged_in_flash.png)
+
+From here, after several tests, I simply had to ask if the user was logged in. If so, is the user the same user as the game.created_by and if that condition is met, the game could be deleted or edited. I produced the else statement in line with, if there was no user.session.logged_in, then the app would redirect to the error403 (forbidden) page...
+![Defensive Programming Edit](static/images/defensive_programming_edit.png)    
+![Defensive Programming Delete](static/images/defensive_programming_delete.png)
 
 
 
@@ -188,6 +194,8 @@ SUCCESS! Once the user had logged in and was taken to the profile page, the flas
 
 
 ## HTML and CSS checks
+
+### **Base.html**
 
 
 ## User Testing 
